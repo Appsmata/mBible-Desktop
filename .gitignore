@@ -1,0 +1,72 @@
+Makefile
+vsongbook.pro.user
+.qmake.stash
+CMakeCache.txt
+CMakeLists.txt.user
+CMakeFiles
+*.cmake
+*.cpp_parameters
+*.db
+*.suo
+*.sln
+*.moc
+*.obj
+*.pdp
+*.exe
+*.log
+*.tlog
+*.opendb
+*.vcxproj
+*.vcxproj.user
+*.vcxproj.filters
+*.cxx_parameters
+cmake*.cmake
+install_*.txt
+qrc_*.cpp
+moc_*.cpp
+mocs_*.cpp
+ui_*.cpp
+ui_*.h
+*.ipch
+Solution.VC.*
+
+# ignore any build folders
+build*/
+# folder with temporary test data
+testdata/
+x64/
+win32/
+Debug/
+Release/
+CMakeFiles/
+vsongbook.dir/
+vsongbook_autogen/
+
+libs/
+src/.ui/
+src/vsongbook
+src/Makefile*
+src/debug
+src/release
+src/gen_version.h
+
+# ignore compiled translation files
+src/translations/*.qm
+
+# ignore compiled macOS app
+src/*.app/
+
+# no one needs the txt file
+src/grammar/sqlite3TokenTypes.txt
+
+libs/*/Makefile*
+libs/*/*/Makefile*
+libs/*/debug/
+libs/*/*/debug/
+libs/*/release/
+libs/*/*/release/
+libs/*/*.a
+libs/*/*/*.a
+
+# Ignore .DS_Store files on OSX
+.DS_Store

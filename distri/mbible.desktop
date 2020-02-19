@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=vSongBook
+Comment=vSongBook is an application giving users the freedom to sing anywhere anytime
+Comment[de]=vSongBook est une application qui donne aux utilisateurs la liberté de chanter partout et à tout moment
+Comment[fr]=vSongBook ist eine Anwendung, mit der Benutzer jederzeit und überall singen können
+Comment[es]=vSongBook ist eine Anwendung, mit der Benutzer jederzeit und überall singen können
+Exec=vsongbook %f
+Icon=vsongbook
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Categories=Education;Utility;
+MimeType=application/vnd.db4s-project+xml;application/vsongbook;application/x-vsongbook;application/vnd.sqlite3;application/geopackage+sqlite3;application/x-sqlite2;application/x-sqlite3;

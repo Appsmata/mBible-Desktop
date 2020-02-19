@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop">
+  <id>vsongbook.desktop</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>MPL-2.0 and GPL-3.0+</project_license>
+  <name>vSongBook</name>
+  <summary>vSongBook is a high quality, visual, open source tool to give users access to song lyrics of major worship and praise songbooks used in christian gatherings.</summary>
+  <description>
+    <p>vSongBook (Virtual Songbook) is a high quality, visual, open source tool to give users access to song lyrics of major worship and praise songbooks used in christian gatherings be it in church, weddings, funerals or anywhere where one feels like singing.</p>
+    <p>Controls and wizards are available for users to:</p>
+    <ul>
+      <li>Browse, edit, add, and delete songs.</li>
+      <li>Search songs realtime.</li>
+      <li>Adjust font types and sizes among other display preferences.</li>
+      <li>View songs in presentation mode for use over projector.</li>
+    </ul>
+  </description>
+  <screenshots>
+    <screenshot type="default">
+      <image>https://raw.githubusercontent.com/vSongBook/vSongBook4PC/master/images/screenshot1.png</image>
+      <caption>vSongBook, homepage</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/vSongBook/vSongBook4PC/master/images/screenshot1.png</image>
+      <caption>vSongBook, homepage</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/vSongBook/vSongBook4PC/master/images/screenshot1.png</image>
+      <caption>vSongBook, homepage</caption>
+    </screenshot>
+  </screenshots>
+  <url type="homepage">https://appsmata.com/vsongbook/</url>
+  <url type="bugtracker">https://github.com/vsongbook/vsongbook/issues</url>
+</component>

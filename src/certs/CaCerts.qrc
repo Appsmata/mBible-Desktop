@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/certs">
+        <file>ca-chain-development.crt</file>
+        <file>ca-chain-docker.crt</file>
+    </qresource>
+    <qresource prefix="/user_certs">
+        <file>public.cert.pem</file>
+    </qresource>
+</RCC>
