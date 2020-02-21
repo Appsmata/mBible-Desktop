@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/icons">
+        <file alias="appicon">mBible.png</file>
         <file alias="db_new">database_add.png</file>
         <file alias="db_open">database_go.png</file>
         <file alias="db_revert">database_refresh.png</file>
@@ -35,7 +36,6 @@
         <file alias="toolbar">layout_sidebar.png</file>
         <file alias="down">bullet_arrow_down.png</file>
         <file alias="up">bullet_arrow_up.png</file>
-        <file alias="appicon">mBible.png</file>
         <file alias="browser_open">internet-web-browser.png</file>
         <file>package.png</file>
         <file alias="project_open">package_go.png</file>

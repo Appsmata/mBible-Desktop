@@ -6,10 +6,10 @@
 
 bool AsBase::isTrue(int value)
 {
-	bool istrue = false;
-    if (value == 0) istrue = false;
-    else if (value == 1) istrue = true;
-	return istrue;
+    bool result = false;
+    if (value == 0) result = false;
+    else if (value == 1) result = true;
+    return result;
 }
 
 QString AsBase::ReplaceList(QString text)
@@ -28,10 +28,10 @@ QString AsBase::ReplaceView(QString text)
 
 QString AsBase::booltoInt(bool value)
 {
-	bool booltoint = false;
+    QString booltoint = "0";
     if (value == true) booltoint = "1";
     else if (value == false) booltoint = "0";
-	return booltoint;
+    return booltoint;
 }
 
 int AsBase::setCmbValue(std::vector<QString> values, QString value)
@@ -64,7 +64,8 @@ std::vector<QString> AsBase::AppSettings()
     std::vector<QString> settings;
     sqlite3* songsDb;
     char* err_msg = NULL, ** qryResult = NULL;
-    int row, col, rc = sqlite3_open_v2(AsUtils::APP_DB(), &songsDb, SQLITE_OPEN_READWRITE | SQLITE_OPEN_CREATE, NULL);
+    int row, col;
+    int rc = sqlite3_open_v2(AsUtils::APP_DB(), &songsDb, SQLITE_OPEN_READWRITE | SQLITE_OPEN_CREATE, NULL);
 
     if (rc == SQLITE_OK)
     {
@@ -154,7 +155,7 @@ void AsBase::InitialDbOps()
     AsBase::execSQL(AsUtils::CREATE_SETTINGS_TABLE_SQL());
     AsBase::execSQL(AsUtils::CREATE_SONGS_TABLE_SQL());
 
-    AsBase::execSQL(AsUtils::SETTINGS_NAVI_SQL());    
+    AsBase::execSQL(AsUtils::SETTINGS_NAVI_SQL());
     AsBase::execSQL(AsUtils::SETTINGS_SQL());
 }
 
@@ -171,6 +172,6 @@ void AsBase::ResetSettings()
 
     if (rc != SQLITE_OK) sqlite3_free(zErrMsg);
     sqlite3_close(db);
-    
+
     AsBase::execSQL(AsUtils::SETTINGS_NAVI_SQL());
 }

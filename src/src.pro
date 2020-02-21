@@ -2,7 +2,7 @@ TEMPLATE = app
 
 QT += core gui network widgets printsupport concurrent xml
 
-TARGET = mbible
+TARGET = mBible
 
 CONFIG += debug_and_release
 CONFIG += qt
@@ -156,7 +156,6 @@ RESOURCES += icons/icons.qrc \
              translations/flags/flags.qrc \
              translations/translations.qrc \
              certs/CaCerts.qrc \
-             qstyle/style.qrc \
              qdarkstyle/style.qrc
 
 FORMS += \
@@ -236,7 +235,7 @@ os2 {
     RC_FILE = os2app.rc
 }
 win32 {
-    TARGET = "BibleBook"
+    TARGET = "mBible"
     RC_FILE = winapp.rc
     INCLUDEPATH += $$PWD
     CONFIG(debug,debug|release) {
@@ -259,7 +258,7 @@ win32 {
     DEPENDPATH += $$PWD/../../../dev/SQLite
 }
 macx {
-    TARGET = "BibleBook"
+    TARGET = "mBible"
     RC_FILE = macapp.icns
     QT += macextras opengl
     INCLUDEPATH += /usr/local/include
@@ -300,7 +299,7 @@ unix {
 
     # Icon
     icon.path = $$DATADIR/icons/hicolor/256x256/apps/
-    icon.files = icons/vsongbook.png
+    icon.files = icons/mBible.png
     INSTALLS += icon
 
     # Desktop metadata
