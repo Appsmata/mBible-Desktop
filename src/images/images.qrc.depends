@@ -1,5 +1,6 @@
 <RCC>
-    <qresource prefix="/">
+    <qresource prefix="/images">
+        <file>Sidebar.png</file>
         <file>Chapters.png</file>
         <file>Down_Black.png</file>
         <file>Down_White.png</file>
@@ -10,5 +11,6 @@
         <file>Theme.png</file>
         <file>Up_Black.png</file>
         <file>Up_White.png</file>
+        <file>version.png</file>
     </qresource>
 </RCC>

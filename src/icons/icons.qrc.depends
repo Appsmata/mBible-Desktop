@@ -1,6 +1,6 @@
 <RCC>
     <qresource prefix="/icons">
-        <file alias="appicon">mbible.png</file>
+        <file alias="app_icon">appicon.png</file>
         <file alias="db_new">database_add.png</file>
         <file alias="db_open">database_go.png</file>
         <file alias="db_revert">database_refresh.png</file>

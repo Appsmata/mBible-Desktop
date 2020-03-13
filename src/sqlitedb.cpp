@@ -1,7 +1,6 @@
 #include "sqlitedb.h"
 #include "sqlite.h"
 #include "sqlitetablemodel.h"
-#include "CipherDialog.h"
 #include "CipherSettings.h"
 #include "DotenvFormat.h"
 #include "Settings.h"

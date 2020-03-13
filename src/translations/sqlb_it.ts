@@ -2,49 +2,49 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="it_IT">
 <context>
-    <name>BibleAbout</name>
+    <name>vSongAbout</name>
     <message>
-        <location filename="../BibleAbout.ui" line="14"/>
-        <source>About vSongBook</source>
-        <translation>Informazioni su vSongBook</translation>
+        <location filename="../vSongAbout.ui" line="14"/>
+        <source>About mBible</source>
+        <translation>Informazioni su mBible</translation>
     </message>
     <message>
-        <location filename="../BibleAbout.ui" line="47"/>
+        <location filename="../vSongAbout.ui" line="47"/>
         <source>Version</source>
         <translation>Versione</translation>
     </message>
     <message>
-        <location filename="../BibleAbout.ui" line="102"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;vSongBook is an open source, freeware visual tool used to create, design and edit SQLite database files.&lt;/p&gt;&lt;p&gt;It is bi-licensed under the Mozilla Public License Version 2, as well as the GNU General Public License Version 3 or later. You can modify or redistribute it under the conditions of these licenses.&lt;/p&gt;&lt;p&gt;See &lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt;http://www.gnu.org/licenses/gpl.html&lt;/a&gt; and &lt;a href=&quot;https://www.mozilla.org/MPL/2.0/index.txt&quot;&gt;https://www.mozilla.org/MPL/2.0/index.txt&lt;/a&gt; for details.&lt;/p&gt;&lt;p&gt;For more information on this program please visit our website at: &lt;a href=&quot;http://appsmata.com/vsongbook&quot;&gt;http://appsmata.com/vsongbook&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:small;&quot;&gt;This software uses the GPL/LGPL Qt Toolkit from &lt;/span&gt;&lt;a href=&quot;http://qt-project.org/&quot;&gt;&lt;span style=&quot; font-size:small;&quot;&gt;http://qt-project.org/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:small;&quot;&gt;&lt;br/&gt;See &lt;/span&gt;&lt;a href=&quot;http://qt-project.org/doc/qt-5/licensing.html&quot;&gt;&lt;span style=&quot; font-size:small;&quot;&gt;http://qt-project.org/doc/qt-5/licensing.html&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:small;&quot;&gt; for licensing terms and information.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:small;&quot;&gt;It also uses the Silk icon set by Mark James licensed under a Creative Commons Attribution 2.5 and 3.0 license.&lt;br/&gt;See &lt;/span&gt;&lt;a href=&quot;http://www.famfamfam.com/lab/icons/silk/&quot;&gt;&lt;span style=&quot; font-size:small;&quot;&gt;http://www.famfamfam.com/lab/icons/silk/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:small;&quot;&gt; for details.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <location filename="../vSongAbout.ui" line="102"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;mBible is an open source, freeware visual tool used to create, design and edit SQLite database files.&lt;/p&gt;&lt;p&gt;It is bi-licensed under the Mozilla Public License Version 2, as well as the GNU General Public License Version 3 or later. You can modify or redistribute it under the conditions of these licenses.&lt;/p&gt;&lt;p&gt;See &lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt;http://www.gnu.org/licenses/gpl.html&lt;/a&gt; and &lt;a href=&quot;https://www.mozilla.org/MPL/2.0/index.txt&quot;&gt;https://www.mozilla.org/MPL/2.0/index.txt&lt;/a&gt; for details.&lt;/p&gt;&lt;p&gt;For more information on this program please visit our website at: &lt;a href=&quot;http://appsmata.com/vsongbook&quot;&gt;http://appsmata.com/vsongbook&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:small;&quot;&gt;This software uses the GPL/LGPL Qt Toolkit from &lt;/span&gt;&lt;a href=&quot;http://qt-project.org/&quot;&gt;&lt;span style=&quot; font-size:small;&quot;&gt;http://qt-project.org/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:small;&quot;&gt;&lt;br/&gt;See &lt;/span&gt;&lt;a href=&quot;http://qt-project.org/doc/qt-5/licensing.html&quot;&gt;&lt;span style=&quot; font-size:small;&quot;&gt;http://qt-project.org/doc/qt-5/licensing.html&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:small;&quot;&gt; for licensing terms and information.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:small;&quot;&gt;It also uses the Silk icon set by Mark James licensed under a Creative Commons Attribution 2.5 and 3.0 license.&lt;br/&gt;See &lt;/span&gt;&lt;a href=&quot;http://www.famfamfam.com/lab/icons/silk/&quot;&gt;&lt;span style=&quot; font-size:small;&quot;&gt;http://www.famfamfam.com/lab/icons/silk/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:small;&quot;&gt; for details.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;DB-Browser for SQLite è uno strumento grafico opensource e freeware usato per creare, struttutturare e modificare file database di SQLite&lt;/p&gt;&lt;p&gt;È rilasciato sotto la licenza Mozilla Public License Version 2, così come sotto la licenza GNU General Public License Version 3 o successive. È possibile modificarlo e redistribuirlo sotto le condizioni specificate da queste licenze.&lt;/p&gt;&lt;p&gt;Si veda &lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt;http://www.gnu.org/licenses/gpl.html&lt;/a&gt; e &lt;a href=&quot;https://www.mozilla.org/MPL/2.0/index.txt&quot;&gt;https://www.mozilla.org/MPL/2.0/index.txt&lt;/a&gt; per ulteriori dettagli.&lt;/p&gt;&lt;p&gt;Per ulteriori dettagli riguardo questo programma visitate il nostro sito web a: &lt;a href=&quot;http://appsmata.com/vsongbook&quot;&gt;http://appsmata.com/vsongbook&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:small;&quot;&gt;Questo software usa GPL/LGPL QT Toolkit da &lt;/span&gt;&lt;a href=&quot;http://qt-project.org/&quot;&gt;&lt;span style=&quot; font-size:small;&quot;&gt;http://qt-project.org/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:small;&quot;&gt;&lt;br/&gt;Si veda &lt;/span&gt;&lt;a href=&quot;http://qt-project.org/doc/qt-5/licensing.html&quot;&gt;&lt;span style=&quot; font-size:small;&quot;&gt;http://qt-project.org/doc/qt-5/licensing.html&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:small;&quot;&gt; per  termini di licenza e informazioni.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:small;&quot;&gt;Utilizza inoltre Silk-Iconset di Mark James, rilasciato sotto licenza Creative Commons Attribution 2.5 e 3.0.&lt;br/&gt;Si veda &lt;/span&gt;&lt;a href=&quot;http://www.famfamfam.com/lab/icons/silk/&quot;&gt;&lt;span style=&quot; font-size:small;&quot;&gt;http://www.famfamfam.com/lab/icons/silk/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:small;&quot;&gt; per ulteriori dettagli.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../BibleAbout.cpp" line="17"/>
+        <location filename="../vSongAbout.cpp" line="17"/>
         <source>SQLite Version </source>
         <translation>Versione SQLite </translation>
     </message>
     <message>
-        <location filename="../BibleAbout.cpp" line="19"/>
+        <location filename="../vSongAbout.cpp" line="19"/>
         <source>SQLCipher Version </source>
         <translation>Versione SQLCipher </translation>
     </message>
     <message>
-        <location filename="../BibleAbout.cpp" line="19"/>
+        <location filename="../vSongAbout.cpp" line="19"/>
         <source> (based on SQLite %1)</source>
         <translation> (basato su SQLite %1)</translation>
     </message>
     <message>
-        <location filename="../BibleAbout.cpp" line="21"/>
+        <location filename="../vSongAbout.cpp" line="21"/>
         <source>Version </source>
         <translation>Versione </translation>
     </message>
     <message>
-        <location filename="../BibleAbout.cpp" line="22"/>
+        <location filename="../vSongAbout.cpp" line="22"/>
         <source>Built for </source>
         <translation>Compilato per </translation>
     </message>
     <message>
-        <location filename="../BibleAbout.cpp" line="23"/>
+        <location filename="../vSongAbout.cpp" line="23"/>
         <source>Qt Version </source>
         <translation>Versione Qt </translation>
     </message>
@@ -207,8 +207,8 @@
     </message>
     <message>
         <location filename="../Application.cpp" line="99"/>
-        <source>This is vSongBook version %1.</source>
-        <translation>Questo è vSongBook versione %1.</translation>
+        <source>This is mBible version %1.</source>
+        <translation>Questo è mBible versione %1.</translation>
     </message>
     <message>
         <location filename="../Application.cpp" line="104"/>
@@ -2458,8 +2458,8 @@ x~y	Intervallo: valori tra x e y
     <name>MainWindow</name>
     <message>
         <location filename="../MainWindow.ui" line="14"/>
-        <source>vSongBook</source>
-        <translation>vSongBook</translation>
+        <source>mBible</source>
+        <translation>mBible</translation>
     </message>
     <message>
         <location filename="../MainWindow.ui" line="53"/>
@@ -2471,7 +2471,7 @@ x~y	Intervallo: valori tra x e y
     <message>
         <location filename="../MainWindow.ui" line="96"/>
         <source>This is the structure of the opened database.
-You can drag SQL statements from an object row and drop them into other applications or into another instance of &apos;vSongBook&apos;.
+You can drag SQL statements from an object row and drop them into other applications or into another instance of &apos;mBible&apos;.
 </source>
         <translation>Questa è la struttura del database aperto.
 Puoi trascinare SQL da una riga oggetto e rilasciarli dentro altri applicativi o in altre istanze di àvSongBook&apos;.
@@ -4275,8 +4275,8 @@ Sei sicuro?</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="2555"/>
-        <source>A new vSongBook version is available (%1.%2.%3).&lt;br/&gt;&lt;br/&gt;Please download at &lt;a href=&apos;%4&apos;&gt;%4&lt;/a&gt;.</source>
-        <translation>Una nuova versione di vSongBook è disponibile (%1.%2.%3).&lt;br/&gt;&lt;br/&gt;Si prega di scaricarla da &lt;a href=&apos;%4&apos;&gt;%4&lt;/a&gt;.</translation>
+        <source>A new mBible version is available (%1.%2.%3).&lt;br/&gt;&lt;br/&gt;Please download at &lt;a href=&apos;%4&apos;&gt;%4&lt;/a&gt;.</source>
+        <translation>Una nuova versione di mBible è disponibile (%1.%2.%3).&lt;br/&gt;&lt;br/&gt;Si prega di scaricarla da &lt;a href=&apos;%4&apos;&gt;%4&lt;/a&gt;.</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="2772"/>
@@ -4285,12 +4285,12 @@ Sei sicuro?</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="2773"/>
-        <source>vSongBook project file (*.sqbpro)</source>
-        <translation>File di progetto vSongBook (*.sqbpro)</translation>
+        <source>mBible project file (*.sqbpro)</source>
+        <translation>File di progetto mBible (*.sqbpro)</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="2898"/>
-        <source>This project file is using an old file format because it was created using vSongBook version 3.10 or lower. Loading this file format is still fully supported but we advice you to convert all your project files to the new file format because support for older formats might be dropped at some point in the future. You can convert your files by simply opening and re-saving them.</source>
+        <source>This project file is using an old file format because it was created using mBible version 3.10 or lower. Loading this file format is still fully supported but we advice you to convert all your project files to the new file format because support for older formats might be dropped at some point in the future. You can convert your files by simply opening and re-saving them.</source>
         <translation>Questo file di progetto utilizza un vecchio formato poiché è stato creato con la versione 3.10 o antecedente. Il caricamento di questo formato è ancora supportato, ma ti suggeriamo di convertire tutti i tuoi files di progetto al nuovo formato poiché il supporto ai formati precedenti potrebbe essere eliminato in futuro. Puoi convertire i tuoi file semplicemente aprendoli e salvandoli nuovamente.</translation>
     </message>
     <message>
@@ -5242,8 +5242,8 @@ Può essere impostato a 0 per disabilitare il completamento.</translation>
     </message>
     <message>
         <location filename="../PreferencesDialog.ui" line="1597"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;While supporting the REGEXP operator SQLite doesn&apos;t implement any regular expression&lt;br/&gt;algorithm but calls back the running application. vSongBook implements this&lt;br/&gt;algorithm for you to let you use REGEXP out of the box. However, as there are multiple possible&lt;br/&gt;implementations of this and you might want to use another one, you&apos;re free to disable the&lt;br/&gt;application&apos;s implementation and load your own by using an extension. Requires restart of the application.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Anche se SQLite supporta l&apos;operatore REGEXP non implementa alcun algoritmo&lt;br/&gt;di espressione regolare, ma richiama l&apos;applicativo in esecuzione. vSongBook implementa questo&lt;br/&gt;algoritmo per te per permetterti di usare le REGEXP immediatamente. Ci sono però multiple implementazioni&lt;br/&gt;possibili e potresti voler utilizzare una o l&apos;altra, sei libero di disabilitare l&apos;implementazione&lt;br/&gt;dell&apos;applicativo e caricare la tua utilizzando un&apos;estensione. Richiede il riavvio dell&apos;applicativo.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;While supporting the REGEXP operator SQLite doesn&apos;t implement any regular expression&lt;br/&gt;algorithm but calls back the running application. mBible implements this&lt;br/&gt;algorithm for you to let you use REGEXP out of the box. However, as there are multiple possible&lt;br/&gt;implementations of this and you might want to use another one, you&apos;re free to disable the&lt;br/&gt;application&apos;s implementation and load your own by using an extension. Requires restart of the application.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Anche se SQLite supporta l&apos;operatore REGEXP non implementa alcun algoritmo&lt;br/&gt;di espressione regolare, ma richiama l&apos;applicativo in esecuzione. mBible implementa questo&lt;br/&gt;algoritmo per te per permetterti di usare le REGEXP immediatamente. Ci sono però multiple implementazioni&lt;br/&gt;possibili e potresti voler utilizzare una o l&apos;altra, sei libero di disabilitare l&apos;implementazione&lt;br/&gt;dell&apos;applicativo e caricare la tua utilizzando un&apos;estensione. Richiede il riavvio dell&apos;applicativo.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../PreferencesDialog.ui" line="1600"/>
@@ -5506,8 +5506,8 @@ Tutte le tue preferenze andranno perse e verranno utilizzati i valori predefinit
     </message>
     <message>
         <location filename="../FileDialog.h" line="16"/>
-        <source>vSongBook Project Files (*.sqbpro)</source>
-        <translation>File di progetto vSongBook (*.sqbpro)</translation>
+        <source>mBible Project Files (*.sqbpro)</source>
+        <translation>File di progetto mBible (*.sqbpro)</translation>
     </message>
     <message>
         <location filename="../FileDialog.h" line="20"/>

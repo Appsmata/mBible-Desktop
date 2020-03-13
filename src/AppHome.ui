@@ -1,0 +1,911 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>AppHome</class>
+ <widget class="QMainWindow" name="AppHome">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>950</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>400</width>
+    <height>0</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>mBible</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="icons/icons.qrc">
+    <normaloff>:/icons/app_icon</normaloff>:/icons/app_icon</iconset>
+  </property>
+  <widget class="QWidget" name="WidgetCentral">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>400</width>
+     <height>0</height>
+    </size>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_7">
+    <property name="spacing">
+     <number>3</number>
+    </property>
+    <property name="leftMargin">
+     <number>3</number>
+    </property>
+    <property name="topMargin">
+     <number>3</number>
+    </property>
+    <property name="rightMargin">
+     <number>3</number>
+    </property>
+    <property name="bottomMargin">
+     <number>3</number>
+    </property>
+    <item>
+     <widget class="QSplitter" name="SplitterMain">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="handleWidth">
+       <number>3</number>
+      </property>
+      <widget class="QWidget" name="verticalLayoutWidget_3">
+       <layout class="QVBoxLayout" name="VLayoutLeft">
+        <item>
+         <widget class="QTabWidget" name="MainTabLeft">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>350</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="sizeIncrement">
+           <size>
+            <width>400</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>Trebuchet MS</family>
+            <pointsize>12</pointsize>
+            <weight>50</weight>
+            <bold>false</bold>
+           </font>
+          </property>
+          <property name="tabPosition">
+           <enum>QTabWidget::North</enum>
+          </property>
+          <property name="tabShape">
+           <enum>QTabWidget::Rounded</enum>
+          </property>
+          <property name="currentIndex">
+           <number>0</number>
+          </property>
+          <property name="movable">
+           <bool>true</bool>
+          </property>
+          <property name="tabBarAutoHide">
+           <bool>true</bool>
+          </property>
+          <widget class="QWidget" name="WdgSearch">
+           <property name="font">
+            <font>
+             <family>Trebuchet MS</family>
+             <pointsize>12</pointsize>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="statusTip">
+            <string extracomment="Search for a Song"/>
+           </property>
+           <property name="accessibleName">
+            <string extracomment="This has to be equal to the tab title in all the main tabs">Search</string>
+           </property>
+           <attribute name="title">
+            <string>Search</string>
+           </attribute>
+           <layout class="QVBoxLayout" name="verticalLayout_2">
+            <property name="spacing">
+             <number>3</number>
+            </property>
+            <property name="leftMargin">
+             <number>3</number>
+            </property>
+            <property name="topMargin">
+             <number>3</number>
+            </property>
+            <property name="rightMargin">
+             <number>3</number>
+            </property>
+            <property name="bottomMargin">
+             <number>3</number>
+            </property>
+            <item>
+             <widget class="QLineEdit" name="TxtSearch">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="font">
+               <font>
+                <family>Trebuchet MS</family>
+                <pointsize>12</pointsize>
+                <weight>50</weight>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="placeholderText">
+               <string>Search for a Song</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBox" name="CmbSongbooks">
+              <property name="currentText">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout">
+              <item>
+               <widget class="QCheckBox" name="ChkSearchCriteria">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="text">
+                 <string>Search All Songbooks</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="Line" name="line">
+                <property name="font">
+                 <font>
+                  <family>Trebuchet MS</family>
+                  <pointsize>12</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Sunken</enum>
+                </property>
+                <property name="lineWidth">
+                 <number>3</number>
+                </property>
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="ChkDarkMode">
+                <property name="text">
+                 <string>Dark Mode</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <widget class="QLabel" name="LblResult">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="text">
+               <string>750 Songs of Worship found</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QListView" name="LstResults">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="horizontalScrollBarPolicy">
+               <enum>Qt::ScrollBarAlwaysOff</enum>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="verticalLayoutWidget_4">
+       <layout class="QVBoxLayout" name="VLayoutRight">
+        <item>
+         <widget class="QTabWidget" name="MainTabRight">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>Trebuchet MS</family>
+            <pointsize>12</pointsize>
+            <weight>50</weight>
+            <bold>false</bold>
+           </font>
+          </property>
+          <property name="tabPosition">
+           <enum>QTabWidget::North</enum>
+          </property>
+          <property name="tabShape">
+           <enum>QTabWidget::Rounded</enum>
+          </property>
+          <property name="currentIndex">
+           <number>0</number>
+          </property>
+          <property name="movable">
+           <bool>true</bool>
+          </property>
+          <property name="tabBarAutoHide">
+           <bool>true</bool>
+          </property>
+          <widget class="QWidget" name="WdgPreview">
+           <property name="font">
+            <font>
+             <family>Trebuchet MS</family>
+             <pointsize>12</pointsize>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="accessibleName">
+            <string extracomment="This has to be equal to the tab title in all the main tabs">History</string>
+           </property>
+           <attribute name="title">
+            <string>Song Preview</string>
+           </attribute>
+           <layout class="QVBoxLayout" name="LayoutPreview">
+            <property name="spacing">
+             <number>3</number>
+            </property>
+            <property name="leftMargin">
+             <number>3</number>
+            </property>
+            <property name="topMargin">
+             <number>3</number>
+            </property>
+            <property name="rightMargin">
+             <number>3</number>
+            </property>
+            <property name="bottomMargin">
+             <number>3</number>
+            </property>
+            <item>
+             <widget class="QToolBar" name="ToolbarPreview">
+              <property name="windowTitle">
+               <string notr="true">toolBar1</string>
+              </property>
+              <property name="toolButtonStyle">
+               <enum>Qt::ToolButtonTextBesideIcon</enum>
+              </property>
+              <addaction name="actionPresent"/>
+              <addaction name="actionEdit"/>
+              <addaction name="actionNewsong"/>
+              <addaction name="actionBigger"/>
+              <addaction name="actionSmaller"/>
+              <addaction name="actionBold"/>
+              <addaction name="actionFont"/>
+              <addaction name="actionPreferences"/>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="TxtPreviewTitle">
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPlainTextEdit" name="TxtPreviewContent">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Sunken</enum>
+              </property>
+              <property name="verticalScrollBarPolicy">
+               <enum>Qt::ScrollBarAsNeeded</enum>
+              </property>
+              <property name="horizontalScrollBarPolicy">
+               <enum>Qt::ScrollBarAlwaysOff</enum>
+              </property>
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPlainTextEdit" name="TxtPreviewAlias">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>75</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>75</height>
+               </size>
+              </property>
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>950</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuSongs">
+    <property name="title">
+     <string>Songs</string>
+    </property>
+    <addaction name="actionNew_Song"/>
+    <addaction name="actionEdit_Song"/>
+    <addaction name="actionDelete_Song"/>
+    <addaction name="separator"/>
+    <addaction name="actionSearch"/>
+    <addaction name="actionSearchAll"/>
+    <addaction name="separator"/>
+    <addaction name="actionSongbooks"/>
+    <addaction name="actionOnline"/>
+   </widget>
+   <widget class="QMenu" name="menuSupport">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="actionAbout"/>
+    <addaction name="actionTutorial"/>
+    <addaction name="separator"/>
+    <addaction name="actionDonate"/>
+    <addaction name="actionCheck_Updates"/>
+    <addaction name="actionContribute"/>
+    <addaction name="separator"/>
+    <addaction name="actionFeature_Request"/>
+    <addaction name="actionBug_Report"/>
+   </widget>
+   <widget class="QMenu" name="menuView">
+    <property name="title">
+     <string>View</string>
+    </property>
+    <addaction name="separator"/>
+    <addaction name="actionSmaller_Font"/>
+    <addaction name="actionBigger_Font"/>
+    <addaction name="separator"/>
+    <addaction name="actionChange_Font"/>
+    <addaction name="actionBold_Text"/>
+    <addaction name="separator"/>
+    <addaction name="actionDarkMode"/>
+   </widget>
+   <widget class="QMenu" name="menuContact_Us">
+    <property name="title">
+     <string>Contact Us</string>
+    </property>
+    <addaction name="actionPhone"/>
+    <addaction name="actionEmail"/>
+    <addaction name="actionWebsite"/>
+   </widget>
+   <widget class="QMenu" name="menuSettings">
+    <property name="title">
+     <string>Settings</string>
+    </property>
+    <addaction name="actionManage_Settings"/>
+    <addaction name="actionReset_Settings"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuView"/>
+   <addaction name="menuSongs"/>
+   <addaction name="menuSettings"/>
+   <addaction name="menuContact_Us"/>
+   <addaction name="menuSupport"/>
+  </widget>
+  <action name="actionPresent">
+   <property name="icon">
+    <iconset resource="icons/icons.qrc">
+     <normaloff>:/icons/present.png</normaloff>:/icons/present.png</iconset>
+   </property>
+   <property name="text">
+    <string>Present</string>
+   </property>
+   <property name="toolTip">
+    <string>Present Song</string>
+   </property>
+   <property name="shortcut">
+    <string>F5</string>
+   </property>
+  </action>
+  <action name="actionBigger">
+   <property name="icon">
+    <iconset resource="icons/icons.qrc">
+     <normaloff>:/icons/bigger.png</normaloff>:/icons/bigger.png</iconset>
+   </property>
+   <property name="text">
+    <string>+</string>
+   </property>
+   <property name="toolTip">
+    <string>Bigger Text</string>
+   </property>
+  </action>
+  <action name="actionSmaller">
+   <property name="icon">
+    <iconset resource="icons/icons.qrc">
+     <normaloff>:/icons/smaller.png</normaloff>:/icons/smaller.png</iconset>
+   </property>
+   <property name="text">
+    <string>-</string>
+   </property>
+   <property name="toolTip">
+    <string>Smaller Text</string>
+   </property>
+  </action>
+  <action name="actionBold">
+   <property name="icon">
+    <iconset resource="icons/icons.qrc">
+     <normaloff>:/icons/bold.png</normaloff>:/icons/bold.png</iconset>
+   </property>
+   <property name="text">
+    <string>Bold</string>
+   </property>
+   <property name="toolTip">
+    <string>Make Bold</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="icon">
+    <iconset resource="icons/icons.qrc">
+     <normaloff>:/icons/close</normaloff>:/icons/close</iconset>
+   </property>
+   <property name="text">
+    <string>Exit</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="icon">
+    <iconset resource="icons/icons.qrc">
+     <normaloff>:/icons/browser_open</normaloff>:/icons/browser_open</iconset>
+   </property>
+   <property name="text">
+    <string>About mBible</string>
+   </property>
+   <property name="shortcut">
+    <string>F2</string>
+   </property>
+  </action>
+  <action name="actionTutorial">
+   <property name="icon">
+    <iconset resource="icons/icons.qrc">
+     <normaloff>:/icons/whatis</normaloff>:/icons/whatis</iconset>
+   </property>
+   <property name="text">
+    <string>How it Works</string>
+   </property>
+   <property name="shortcut">
+    <string>F1</string>
+   </property>
+  </action>
+  <action name="actionReset_Settings">
+   <property name="icon">
+    <iconset resource="icons/icons.qrc">
+     <normaloff>:/icons/remove_extension</normaloff>:/icons/remove_extension</iconset>
+   </property>
+   <property name="text">
+    <string>Reset Settings</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+R</string>
+   </property>
+  </action>
+  <action name="actionManage_Settings">
+   <property name="icon">
+    <iconset resource="icons/icons.qrc">
+     <normaloff>:/icons/settings</normaloff>:/icons/settings</iconset>
+   </property>
+   <property name="text">
+    <string>Manage Settings</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="actionNew_Song">
+   <property name="icon">
+    <iconset resource="icons/icons.qrc">
+     <normaloff>:/icons/field_add</normaloff>:/icons/field_add</iconset>
+   </property>
+   <property name="text">
+    <string>New Song</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
+   </property>
+  </action>
+  <action name="actionEdit_Song">
+   <property name="icon">
+    <iconset resource="icons/icons.qrc">
+     <normaloff>:/icons/edit_cond_formats.png</normaloff>:/icons/edit_cond_formats.png</iconset>
+   </property>
+   <property name="text">
+    <string>Edit Song</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+E</string>
+   </property>
+  </action>
+  <action name="actionDelete_Song">
+   <property name="icon">
+    <iconset resource="icons/icons.qrc">
+     <normaloff>:/icons/delete.png</normaloff>:/icons/delete.png</iconset>
+   </property>
+   <property name="text">
+    <string>Delete Song</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+D</string>
+   </property>
+  </action>
+  <action name="actionDonate">
+   <property name="icon">
+    <iconset resource="icons/icons.qrc">
+     <normaloff>:/icons/filter</normaloff>:/icons/filter</iconset>
+   </property>
+   <property name="text">
+    <string>Donate</string>
+   </property>
+  </action>
+  <action name="actionContribute">
+   <property name="icon">
+    <iconset resource="icons/icons.qrc">
+     <normaloff>:/icons/add_record</normaloff>:/icons/add_record</iconset>
+   </property>
+   <property name="text">
+    <string>OS Contribution</string>
+   </property>
+  </action>
+  <action name="actionCheck_Updates">
+   <property name="icon">
+    <iconset resource="icons/icons.qrc">
+     <normaloff>:/icons/refresh</normaloff>:/icons/refresh</iconset>
+   </property>
+   <property name="text">
+    <string>Check Updates</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+U</string>
+   </property>
+  </action>
+  <action name="actionBigger_Font">
+   <property name="icon">
+    <iconset resource="icons/icons.qrc">
+     <normaloff>:/icons/bigger.png</normaloff>:/icons/bigger.png</iconset>
+   </property>
+   <property name="text">
+    <string>Bigger Font</string>
+   </property>
+   <property name="shortcut">
+    <string>Up</string>
+   </property>
+  </action>
+  <action name="actionSmaller_Font">
+   <property name="icon">
+    <iconset resource="icons/icons.qrc">
+     <normaloff>:/icons/smaller.png</normaloff>:/icons/smaller.png</iconset>
+   </property>
+   <property name="text">
+    <string>Smaller Font</string>
+   </property>
+   <property name="shortcut">
+    <string>Down</string>
+   </property>
+  </action>
+  <action name="actionChange_Font">
+   <property name="icon">
+    <iconset resource="icons/icons.qrc">
+     <normaloff>:/icons/font.png</normaloff>:/icons/font.png</iconset>
+   </property>
+   <property name="text">
+    <string>Change Font</string>
+   </property>
+   <property name="shortcut">
+    <string>F</string>
+   </property>
+  </action>
+  <action name="actionBold_Text">
+   <property name="icon">
+    <iconset resource="icons/icons.qrc">
+     <normaloff>:/icons/bold.png</normaloff>:/icons/bold.png</iconset>
+   </property>
+   <property name="text">
+    <string>Bold Text</string>
+   </property>
+   <property name="shortcut">
+    <string>B</string>
+   </property>
+  </action>
+  <action name="actionPreferences">
+   <property name="icon">
+    <iconset resource="icons/icons.qrc">
+     <normaloff>:/icons/keyword</normaloff>:/icons/keyword</iconset>
+   </property>
+   <property name="text">
+    <string>Options</string>
+   </property>
+  </action>
+  <action name="actionEdit">
+   <property name="icon">
+    <iconset resource="icons/icons.qrc">
+     <normaloff>:/icons/edit.png</normaloff>:/icons/edit.png</iconset>
+   </property>
+   <property name="text">
+    <string>Edit</string>
+   </property>
+  </action>
+  <action name="actionNewsong">
+   <property name="icon">
+    <iconset resource="icons/icons.qrc">
+     <normaloff>:/icons/field_add</normaloff>:/icons/field_add</iconset>
+   </property>
+   <property name="text">
+    <string>New</string>
+   </property>
+  </action>
+  <action name="actionSongbooks">
+   <property name="icon">
+    <iconset resource="icons/icons.qrc">
+     <normaloff>:/icons/copy</normaloff>:/icons/copy</iconset>
+   </property>
+   <property name="text">
+    <string>Manage Books</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+B</string>
+   </property>
+  </action>
+  <action name="actionOnline">
+   <property name="icon">
+    <iconset resource="icons/icons.qrc">
+     <normaloff>:/icons/browser_open</normaloff>:/icons/browser_open</iconset>
+   </property>
+   <property name="text">
+    <string>Online Content</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+W</string>
+   </property>
+  </action>
+  <action name="actionPhone">
+   <property name="text">
+    <string>Phone: +254 711 474787</string>
+   </property>
+  </action>
+  <action name="actionEmail">
+   <property name="text">
+    <string>Email: appsmatake@gmail.com</string>
+   </property>
+  </action>
+  <action name="actionWebsite">
+   <property name="text">
+    <string>Website: http://appsmata.com</string>
+   </property>
+  </action>
+  <action name="actionFeature_Request">
+   <property name="text">
+    <string>Feature Request</string>
+   </property>
+  </action>
+  <action name="actionBug_Report">
+   <property name="text">
+    <string>Bug Report</string>
+   </property>
+  </action>
+  <action name="actionFont">
+   <property name="icon">
+    <iconset resource="icons/icons.qrc">
+     <normaloff>:/icons/font.png</normaloff>:/icons/font.png</iconset>
+   </property>
+   <property name="text">
+    <string>Font</string>
+   </property>
+   <property name="toolTip">
+    <string>Change Font Type</string>
+   </property>
+   <property name="shortcut">
+    <string>Shift+F</string>
+   </property>
+  </action>
+  <action name="actionSearch">
+   <property name="icon">
+    <iconset resource="icons/icons.qrc">
+     <normaloff>:/icons/find</normaloff>:/icons/find</iconset>
+   </property>
+   <property name="text">
+    <string>Search a Song</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+F</string>
+   </property>
+  </action>
+  <action name="actionSearchAll">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Search all Songs</string>
+   </property>
+  </action>
+  <action name="actionDarkMode">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Dark Mode</string>
+   </property>
+   <property name="shortcut">
+    <string>Shift+D</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="icons/icons.qrc"/>
+ </resources>
+ <connections/>
+ <slots>
+  <slot>fileOpen()</slot>
+  <slot>fileClose()</slot>
+  <slot>browseFind(bool)</slot>
+  <slot>refresh()</slot>
+  <slot>compact()</slot>
+  <slot>helpWhatsThis()</slot>
+  <slot>mainTabSelected(int)</slot>
+  <slot>executeQuery()</slot>
+  <slot>importTableFromCSV()</slot>
+  <slot>exportTableToCSV()</slot>
+  <slot>fileRevert()</slot>
+  <slot>fileSave()</slot>
+  <slot>deleteIndex()</slot>
+  <slot>createIndex()</slot>
+  <slot>createTable()</slot>
+  <slot>deleteObject()</slot>
+  <slot>editObject()</slot>
+  <slot>editTablePopup()</slot>
+  <slot>addField()</slot>
+  <slot>editField()</slot>
+  <slot>exportDatabaseToSQL()</slot>
+  <slot>importDatabaseFromSQL()</slot>
+  <slot>openPreferences()</slot>
+  <slot>createTreeContextMenu(QPoint)</slot>
+  <slot>changeTreeSelection()</slot>
+  <slot>fileNew()</slot>
+  <slot>helpAbout()</slot>
+  <slot>deleteField()</slot>
+  <slot>loadPragmas()</slot>
+  <slot>savePragmas()</slot>
+  <slot>copy()</slot>
+  <slot>closeSqlTab(int)</slot>
+  <slot>openSqlTab()</slot>
+  <slot>openSqlFile()</slot>
+  <slot>saveSqlFile()</slot>
+  <slot>loadExtension()</slot>
+  <slot>loadProject()</slot>
+  <slot>saveProject()</slot>
+  <slot>fileAttach()</slot>
+  <slot>editEncryption()</slot>
+  <slot>saveSqlFileAs()</slot>
+  <slot>switchToBrowseDataTab()</slot>
+  <slot>copyCurrentCreateStatement()</slot>
+  <slot>browseDataFetchAllData()</slot>
+  <slot>exportTableToJson()</slot>
+  <slot>fileOpenReadOnly()</slot>
+  <slot>saveSqlResultsAsCsv()</slot>
+  <slot>saveSqlResultsAsView()</slot>
+  <slot>changeSqlTab(int)</slot>
+  <slot>renameSqlTab(int)</slot>
+  <slot>fileNewInMemoryDatabase()</slot>
+  <slot>showContextMenuSqlTabBar(QPoint)</slot>
+ </slots>
+</ui>

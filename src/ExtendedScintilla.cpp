@@ -1,5 +1,4 @@
 #include "ExtendedScintilla.h"
-#include "FindReplaceDialog.h"
 #include "Settings.h"
 
 #include "Qsci/qscilexer.h"
@@ -22,8 +21,7 @@
 
 ExtendedScintilla::ExtendedScintilla(QWidget* parent) :
     QsciScintilla(parent),
-    showErrorIndicators(true),
-    findReplaceDialog(new FindReplaceDialog(this))
+    showErrorIndicators(true)
 {
     // This class does not set any lexer, that must be done in the child classes.
 
@@ -257,14 +255,13 @@ void ExtendedScintilla::clearSelection()
 
 void ExtendedScintilla::openFindReplaceDialog()
 {
-    findReplaceDialog->setExtendedScintilla(this);
-    findReplaceDialog->showFindReplaceDialog(true);
+
+
 }
 
 void ExtendedScintilla::openFindDialog()
 {
-    findReplaceDialog->setExtendedScintilla(this);
-    findReplaceDialog->showFindReplaceDialog(false);
+
 }
 
 void ExtendedScintilla::showContextMenu(const QPoint &pos)

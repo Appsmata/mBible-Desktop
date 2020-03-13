@@ -36,7 +36,7 @@ QString AsBase::booltoInt(bool value)
 
 int AsBase::setCmbValue(std::vector<QString> values, QString value)
 {
-    int retvalue;
+    int retvalue = 0;
     for (int v = 0; v < values.size(); v++)
     {
         if (value == values[v]) retvalue = v;
@@ -48,7 +48,7 @@ void AsBase::SetOption(QString Title, QString Content)
 {
     sqlite3* db;
     char* zErrMsg = NULL;
-    int rc = sqlite3_open("Data/vSongBook.db", &db);
+    int rc = sqlite3_open("Data/mBible.db", &db);
 
     QByteArray bar = AsUtils::UPDATE_SETTINGS_SQL(Title, Content).toLocal8Bit();
     char* sqlQuery = bar.data();
@@ -82,21 +82,6 @@ std::vector<QString> AsBase::AppSettings()
     return settings;
 }
 
-void AsBase::UpdateSongCount(QString Bookid, QString Count)
-{
-    sqlite3* db;
-    char* zErrMsg = NULL;
-    int rc = sqlite3_open(AsUtils::APP_DB(), &db);
-
-    QByteArray bar = AsUtils::BOOK_SONGS_COUNT_SQL(Bookid, Count).toLocal8Bit();
-    char* sqlQuery = bar.data();
-
-    rc = sqlite3_exec(db, sqlQuery, 0, 0, &zErrMsg);
-
-    if (rc != SQLITE_OK) sqlite3_free(zErrMsg);
-    sqlite3_close(db);
-}
-
 void AsBase::execSQL(QString SqlQuery)
 {
     sqlite3* db;
@@ -113,7 +98,7 @@ void AsBase::execSQL(QString SqlQuery)
     sqlite3_close(db);
 }
 
-void AsBase::NewBook(QString Title, QString Category, QString Tags, QString Content, QString Songs)
+void AsBase::NewBook(QString Title, QString Category, QString Tags, QString Content, QString Position, QString Songs)
 {
     sqlite3* db;
     char* zErrMsg = NULL;
@@ -122,7 +107,7 @@ void AsBase::NewBook(QString Title, QString Category, QString Tags, QString Cont
     uint timenow = QDateTime::currentSecsSinceEpoch();
     QString timeStr = QString::number(timenow);
 
-    QByteArray bar = AsUtils::BOOK_INSERT_SQL(Title, Category, Tags, Content, Songs).toLocal8Bit();
+    QByteArray bar = AsUtils::BOOK_INSERT_SQL(Title, Category, Tags, Content, Position, Songs).toLocal8Bit();
     char* sqlQuery = bar.data();
 
     rc = sqlite3_exec(db, sqlQuery, 0, 0, &zErrMsg);
@@ -131,13 +116,53 @@ void AsBase::NewBook(QString Title, QString Category, QString Tags, QString Cont
     sqlite3_close(db);
 }
 
-void AsBase::NewSong(QString Bookid, QString Category, QString Number, QString Title, QString Alias, QString Content, QString Key, QString Author)
+QString AsBase::CountSongs(QString Bookid)
+{
+	sqlite3* db;
+	char* err_msg = NULL, ** qryResult = NULL;
+	int row, col;
+	int rc = sqlite3_open(AsUtils::APP_DB(), &db);
+
+	QString SqlQuery = "SELECT COUNT() FROM " + AsUtils::TBL_SONGS() + 
+		" WHERE " + AsUtils::TBL_SONGS() + "." + AsUtils::BOOKID() + "=" + Bookid;
+	QByteArray bar = SqlQuery.toLocal8Bit();
+	char* sqlQuery = bar.data();
+
+	rc = sqlite3_get_table(db, sqlQuery, &qryResult, &row, &col, &err_msg);
+	QString songcount = *(qryResult + 1 * col + 0);
+	sqlite3_free(err_msg);
+	sqlite3_close(db);
+
+	return songcount;
+}
+
+void AsBase::UpdateSongCount(QString Bookid, QString Count)
+{
+	sqlite3* db;
+	char* zErrMsg = NULL;
+	int rc = sqlite3_open(AsUtils::APP_DB(), &db);
+
+	uint timenow = QDateTime::currentSecsSinceEpoch();
+	QString timeStr = QString::number(timenow);
+	
+	QString SqlQuery = "UPDATE " + AsUtils::TBL_BOOKS() + " SET " + AsUtils::QCOUNT() + "='" + Count + "', " + 
+		AsUtils::UPDATED() + "='" + AsUtils::TIMENOW() + "' WHERE " + AsUtils::BOOKID() + "=" + Bookid;
+	QByteArray bar = SqlQuery.toLocal8Bit();
+	char* sqlQuery = bar.data();
+
+	rc = sqlite3_exec(db, sqlQuery, 0, 0, &zErrMsg);
+
+	if (rc != SQLITE_OK) sqlite3_free(zErrMsg);
+	sqlite3_close(db);
+}
+
+void AsBase::NewSong(QString Number, QString Title, QString Alias, QString Content, QString Key, QString Author, QString Bookid, QString Categoryid)
 {
     sqlite3* db;
     char* zErrMsg = NULL;
     int rc = sqlite3_open(AsUtils::APP_DB(), &db);
 
-    QByteArray bar = AsUtils::SONG_INSERT_SQL(Number, Title, Alias, Content, Key, Author, Bookid, Category).toLocal8Bit();
+    QByteArray bar = AsUtils::SONG_INSERT_SQL(Number, Title, Alias, Content, Key, Author, Bookid, Categoryid).toLocal8Bit();
     char* sqlQuery = bar.data();
 
     rc = sqlite3_exec(db, sqlQuery, 0, 0, &zErrMsg);
@@ -155,7 +180,7 @@ void AsBase::InitialDbOps()
     AsBase::execSQL(AsUtils::CREATE_SETTINGS_TABLE_SQL());
     AsBase::execSQL(AsUtils::CREATE_SONGS_TABLE_SQL());
 
-    AsBase::execSQL(AsUtils::SETTINGS_NAVI_SQL());
+    AsBase::execSQL(AsUtils::SETTINGS_NAVI_SQL());    
     AsBase::execSQL(AsUtils::SETTINGS_SQL());
 }
 
@@ -172,6 +197,6 @@ void AsBase::ResetSettings()
 
     if (rc != SQLITE_OK) sqlite3_free(zErrMsg);
     sqlite3_close(db);
-
+    
     AsBase::execSQL(AsUtils::SETTINGS_NAVI_SQL());
 }

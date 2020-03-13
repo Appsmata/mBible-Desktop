@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Include xmlns="http://schemas.microsoft.com/wix/2006/wi">
 
-    <?define Name="vSongBook" ?>
+    <?define Name="DB Browser for SQLite" ?>
     <?define Team="$(var.Name) Team" ?>
     <?define Version="3.11.99" ?>
 
@@ -14,11 +14,11 @@
 
     <?define AppIcon="..\..\src\iconwin.ico" ?>
     <?define AppComments="$(var.Name) is a high quality, visual, open source tool to create, design, and edit database files compatible with SQLite." ?>
-    <?define AppContact="db4s-dev@appsmata.com/vsongbook" ?>
-    <?define AppReadme="https://github.com/vsongbook/vsongbook" ?>
-    <?define AppHelpLink="https://github.com/vsongbook/vsongbook/wiki" ?>
-    <?define AppSupportLink="https://github.com/vsongbook/vsongbook/issues" ?>
-    <?define AppUpdateInfoLink="https://github.com/vsongbook/vsongbook/releases" ?>
+    <?define AppContact="db4s-dev@sqlitebrowser.org" ?>
+    <?define AppReadme="https://github.com/sqlitebrowser/sqlitebrowser" ?>
+    <?define AppHelpLink="https://github.com/sqlitebrowser/sqlitebrowser/wiki" ?>
+    <?define AppSupportLink="https://github.com/sqlitebrowser/sqlitebrowser/issues" ?>
+    <?define AppUpdateInfoLink="https://github.com/sqlitebrowser/sqlitebrowser/releases" ?>
 
     <!--
     ================================================== Visual C++ CRT ==================================================

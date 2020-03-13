@@ -26,8 +26,9 @@ public:
     static void execSQL(QString SqlQuery);
     static void InitialDbOps();
 
-    static void NewBook(QString Title, QString Category, QString Tags, QString Content, QString Songs);
-    static void NewSong(QString Bookid, QString Category, QString Number, QString Title, QString Alias, QString Content, QString Key, QString Author);
+    static void NewBook(QString Title, QString Category, QString Tags, QString Content, QString Position, QString Songs);
+    static void NewSong(QString Number, QString Title, QString Alias, QString Content, QString Key, QString Author, QString Bookid, QString Categoryid);
+	static QString CountSongs(QString Bookid);
 
     static void ResetSettings();
 };

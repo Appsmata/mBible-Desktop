@@ -2,7 +2,7 @@ TEMPLATE = app
 
 QT += core gui network widgets printsupport concurrent xml
 
-TARGET = mBible
+TARGET = vsongbook
 
 CONFIG += debug_and_release
 CONFIG += qt
@@ -21,25 +21,20 @@ CONFIG(unittest) {
 }
 
 HEADERS += \
-    sqlitedb.h \
-    MainWindow.h \
-    EditIndexDialog.h \
-    BibleAbout.h \
     AsBase.h \
     AsDelegate.h \
     AsItem.h \
     AsUtils.h \
-    EditTableDialog.h \
-    AddRecordDialog.h \
-    BibleHome.h \
-    BiblePreferences.h \
-    BiblePresent.h \
-    BibleTutorial.h \
+    sqlitedb.h \
+    AppAbout.h \
+    AppEditor.h \
+    AppHome.h \
+    AppOnline.h \
+    AppPreferences.h \
+    AppPresent.h \
+    AppSongbooks.h \
+    AppTutorial.h \
     Settings.h \
-    PreferencesDialog.h \
-    EditDialog.h \
-    ExportDataDialog.h \
-    ImportCsvDialog.h \
     sqltextedit.h \
     sql/sqlitetypes.h \
     csvparser.h \
@@ -49,28 +44,16 @@ HEADERS += \
     RowLoader.h \
     FilterTableHeader.h \
     version.h \
-    SqlExecutionArea.h \
-    VacuumDialog.h \
     DbStructureModel.h \
     Application.h \
     sqlite.h \
-    CipherDialog.h \
-    ExportSqlDialog.h \
     SqlUiLexer.h \
-    FileDialog.h \
-    ColumnDisplayFormatDialog.h \
     FilterLineEdit.h \
     RemoteDatabase.h \
     ForeignKeyEditorDelegate.h \
-    PlotDock.h \
-    RemoteDock.h \
     RemoteModel.h \
-    RemotePushDialog.h \
     docktextedit.h \
-    FindReplaceDialog.h \
     ExtendedScintilla.h \
-    FileExtensionManager.h \
-    CondFormatManager.h \
     Data.h \
     CipherSettings.h \
     DotenvFormat.h \
@@ -79,34 +62,26 @@ HEADERS += \
     sql/Query.h \
     RunSql.h \
     sql/ObjectIdentifier.h \
-    ProxyDialog.h \
     IconCache.h \
-    SelectItemsPopup.h \
-    TableBrowser.h \
     sql/parser/ParserDriver.h \
     sql/parser/sqlite3_lexer.h \
     sql/parser/sqlite3_location.h \
     sql/parser/sqlite3_parser.hpp
 
 SOURCES += \
-    sqlitedb.cpp \
-    MainWindow.cpp \
-    EditIndexDialog.cpp \
-    EditTableDialog.cpp \
-    AddRecordDialog.cpp \
-    Settings.cpp \
-    PreferencesDialog.cpp \
-    BibleAbout.cpp \
     AsBase.cpp \
     AsDelegate.cpp \
     AsUtils.cpp \
-    BibleHome.cpp \
-    BiblePreferences.cpp \
-    BiblePresent.cpp \
-    BibleTutorial.cpp \
-    EditDialog.cpp \
-    ExportDataDialog.cpp \
-    ImportCsvDialog.cpp \
+    sqlitedb.cpp \
+    AppAbout.cpp \
+    AppEditor.cpp \
+    AppHome.cpp \
+    AppOnline.cpp \
+    AppPreferences.cpp \
+    AppPresent.cpp \
+    AppSongbooks.cpp \
+    AppTutorial.cpp \
+    Settings.cpp \
     sqltextedit.cpp \
     sql/sqlitetypes.cpp \
     csvparser.cpp \
@@ -114,27 +89,15 @@ SOURCES += \
     sqlitetablemodel.cpp \
     RowLoader.cpp \
     FilterTableHeader.cpp \
-    SqlExecutionArea.cpp \
-    VacuumDialog.cpp \
     DbStructureModel.cpp \
     Application.cpp \
-    CipherDialog.cpp \
-    ExportSqlDialog.cpp \
     SqlUiLexer.cpp \
-    FileDialog.cpp \
-    ColumnDisplayFormatDialog.cpp \
     FilterLineEdit.cpp \
     RemoteDatabase.cpp \
     ForeignKeyEditorDelegate.cpp \
-    PlotDock.cpp \
-    RemoteDock.cpp \
     RemoteModel.cpp \
-    RemotePushDialog.cpp \
     docktextedit.cpp \
-    FindReplaceDialog.cpp \
     ExtendedScintilla.cpp \
-    FileExtensionManager.cpp \
-    CondFormatManager.cpp \
     Data.cpp \
     CipherSettings.cpp \
     DotenvFormat.cpp \
@@ -143,10 +106,7 @@ SOURCES += \
     sql/Query.cpp \
     RunSql.cpp \
     sql/ObjectIdentifier.cpp \
-    ProxyDialog.cpp \
     IconCache.cpp \
-    SelectItemsPopup.cpp \
-    TableBrowser.cpp \
     sql/parser/ParserDriver.cpp \
     sql/parser/sqlite3_lexer.cpp \
     sql/parser/sqlite3_parser.cpp
@@ -159,33 +119,14 @@ RESOURCES += icons/icons.qrc \
              qdarkstyle/style.qrc
 
 FORMS += \
-    MainWindow.ui \
-    EditIndexDialog.ui \
-    BibleAbout.ui \
-    EditTableDialog.ui \
-    AddRecordDialog.ui \
-    BibleHome.ui \
-    BiblePreferences.ui \
-    BiblePresent.ui \
-    BibleTutorial.ui \
-    PreferencesDialog.ui \
-    EditDialog.ui \
-    ExportDataDialog.ui \
-    ImportCsvDialog.ui \
-    SqlExecutionArea.ui \
-    VacuumDialog.ui \
-    CipherDialog.ui \
-    ExportSqlDialog.ui \
-    ColumnDisplayFormatDialog.ui \
-    PlotDock.ui \
-    RemoteDock.ui \
-    RemotePushDialog.ui \
-    FindReplaceDialog.ui \
-    FileExtensionManager.ui \
-    CondFormatManager.ui \
-    ProxyDialog.ui \
-    SelectItemsPopup.ui \
-    TableBrowser.ui
+    AppAbout.ui \
+    AppSongbooks.ui \
+    AppEditor.ui \
+    AppHome.ui \
+    AppOnline.ui \
+    AppPreferences.ui \
+    AppPresent.ui \
+    AppTutorial.ui
 
 TRANSLATIONS += \
     translations/sqlb_ar_SA.ts \
@@ -228,6 +169,7 @@ LIBPATH_QHEXEDIT=$$OUT_PWD/../libs/qhexedit
 LIBPATH_QCUSTOMPLOT=$$OUT_PWD/../libs/qcustomplot-source
 LIBPATH_QSCINTILLA=$$OUT_PWD/../libs/qscintilla/Qt4Qt5
 LIBPATH_JSON=$$OUT_PWD/../libs/json
+
 unix {
     LIBS += -ldl
 }
@@ -256,6 +198,7 @@ win32 {
     LIBS += -L$$PWD/../../../dev/SQLite/ -lsqlite3
     INCLUDEPATH += $$PWD/../../../dev/SQLite
     DEPENDPATH += $$PWD/../../../dev/SQLite
+
 }
 macx {
     TARGET = "mBible"
@@ -299,7 +242,7 @@ unix {
 
     # Icon
     icon.path = $$DATADIR/icons/hicolor/256x256/apps/
-    icon.files = icons/mBible.png
+    icon.files = icons/vsongbook.png
     INSTALLS += icon
 
     # Desktop metadata

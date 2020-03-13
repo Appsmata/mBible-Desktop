@@ -23,8 +23,5 @@ int main(int argc, char** argv)
     splash.close();
 
     Application vsb(argc, argv);
-    setStyle("res/style.qss");
-
-    // Run application
     return vsb.exec();
 }

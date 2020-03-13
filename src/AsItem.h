@@ -17,4 +17,4 @@ struct AsItem {
 
 Q_DECLARE_METATYPE(AsItem)
 
-#endif //ITEMDATA_H
+#endif

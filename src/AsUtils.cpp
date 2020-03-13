@@ -1,20 +1,16 @@
 #include "AsUtils.h"
 
 QString AsUtils::DB_FILE() { return R"(Data/mBible.db)"; }
-char* AsUtils::APP_DB() { return R"(Data/mBible.db)"; }
+char const *AsUtils::APP_DB() { return R"(Data/mBible.db)"; }
 
 QString AsUtils::TBL_BOOKS() { return "books"; }
 QString AsUtils::TBL_HISTORY() { return "history"; }
 QString AsUtils::TBL_SETTINGS() { return "settings"; }
 QString AsUtils::TBL_SETTINGS_NAVI() { return "settings_navi"; }
 QString AsUtils::TBL_SONGS() { return "songs"; }
-QString AsUtils::TBL_VERSES() { return "verses_"; }
+
 
 QString AsUtils::BOOKID() { return "bookid"; }
-QString AsUtils::TESTAMENT() { return "testament"; }
-QString AsUtils::CODE() { return "code"; }
-QString AsUtils::CHAPTERS() { return "chapters"; }
-QString AsUtils::SWAHILI() { return "swahili"; }
 QString AsUtils::CATEGORYID() { return "categoryid"; }
 QString AsUtils::ENABLED() { return "enabled"; }
 QString AsUtils::TITLE() { return "title"; }
@@ -35,9 +31,6 @@ QString AsUtils::SETTINGID() { return "settingid"; }
 
 QString AsUtils::NAVID() { return "navid"; }
 QString AsUtils::TAGS() { return "tags"; }
-
-QString AsUtils::VERSEID() { return "verseid"; }
-QString AsUtils::HIGHLIGHT() { return "highlight"; }
 
 QString AsUtils::SONGID() { return "songid"; }
 QString AsUtils::POSTID() { return "postid"; }
@@ -143,11 +136,16 @@ QString AsUtils::BOOK_SELECT_SQL()
 {
 	return "SELECT " +
 		BOOKID() + ", " +
-		TESTAMENT() + ", " +
-		CODE() + ", " +
+		CATEGORYID() + ", " +
+		ENABLED() + ", " +
 		TITLE() + ", " +
-		CHAPTERS() + ", " +
-		SWAHILI() +
+		TAGS() + ", " +
+		QCOUNT() + ", " +
+		POSITION() + ", " +
+		CONTENT() + ", " +
+		BACKPATH() + ", " +
+		CREATED() + ", " +
+		UPDATED() +
 		" FROM " + TBL_BOOKS();
 }
 
@@ -161,38 +159,31 @@ QString AsUtils::BOOK_SINGLE_SQL(QString Book)
 	return BOOK_SELECT_SQL() + " WHERE " + BOOKID() + "=" + Book;
 }
 
-QString AsUtils::BOOK_SEARCH_SQL(QString Search, bool SearchOT, bool SearchNT)
+QString AsUtils::BOOK_SEARCH_SQL(QString Search)
 {
-	QString Testaments = "", WhereQry = "";
-	if (SearchOT && !SearchNT) Testaments = " AND " + TESTAMENT() + "=1";
-	else if (!SearchOT && SearchNT) Testaments = " AND " + TESTAMENT() + "=2";
-
 	QString SqlQuery = BOOK_SELECT_SQL();
 
 	if (!Search.isEmpty())
 	{
-		WhereQry.append(CODE() + " LIKE '%" + Search + "%'" + Testaments);
-		WhereQry.append(" OR " + TITLE() + " LIKE '%" + Search + "%'" + Testaments);
-		WhereQry.append(" OR " + SWAHILI() + " LIKE '%" + Search + "%'" + Testaments);
+		SqlQuery.append(" WHERE " + TITLE() + " LIKE '%" + Search + "%' " +
+			"OR " + TAGS() + " LIKE '%" + Search + "%'");
 	}
-	else WhereQry.append(Testaments);
 
-	SqlQuery.append((WhereQry.isEmpty() ? "" : " WHERE " + WhereQry) + " ORDER BY " + BOOKID() + " ASC");
-	if (SqlQuery.contains("WHERE  AND")) SqlQuery.replace("WHERE  AND", "WHERE ");
+	SqlQuery.append(" ORDER BY " + POSITION() + " ASC");
 	return SqlQuery;
 }
 
-QString AsUtils::BOOK_INSERT_SQL(QString Title, QString Category, QString Tags, QString Content, QString Songs)
+QString AsUtils::BOOK_INSERT_SQL(QString Title, QString Category, QString Tags, QString Content, QString Position, QString Songs)
 {
 	return "INSERT INTO " + TBL_BOOKS() +
-		"( " + TITLE() + ", " + CATEGORYID() + ", " + TAGS() + ", " + CONTENT() + ", " + QCOUNT() + ", " + CREATED() +
-		" ) VALUES ( '" + Title + "', " + Category + "', " + Tags + "', '" + Content + "', " + Songs + ", " + TIMENOW() + ")";
+		"( " + TITLE() + ", " + CATEGORYID() + ", " + TAGS() + ", " + CONTENT() + ", " + POSITION() + ", " + QCOUNT() + ", " + ENABLED() + ", " + CREATED() +
+		" ) VALUES ( '" + Title + "', '" + Category + "', '" + Tags + "', '" + Content + "', " + Position + ", " + Songs + ", 1, " + TIMENOW() + ")";
 }
 
-QString AsUtils::BOOK_UPDATE_SQL(QString Bookid, QString Title, QString Tags, QString Content)
+QString AsUtils::BOOK_UPDATE_SQL(QString Bookid, QString Title, QString Tags, QString Content, QString Songs)
 {
 	return "UPDATE " + TBL_BOOKS() + " SET " + TITLE() + "='" + Title + "', " + TAGS() + "='" + Tags +
-		"', " + CONTENT() + "='" + Content + "', " + UPDATED() + "='" + TIMENOW() +
+		"', " + CONTENT() + "='" + Content + "', " + QCOUNT() + "='" + Songs + "', " + UPDATED() + "='" + TIMENOW() +
 		"' WHERE " + BOOKID() + "=" + Bookid;
 }
 
@@ -210,7 +201,7 @@ char* AsUtils::BOOK_DELETE_SQL(QString Bookid)
 	return bar.data();
 }
 
-QString AsUtils::HISTORY_SELECT_SQL(QString STATE)
+QString AsUtils::HISTORY_SELECT_SQL()
 {
 	return "SELECT " +
 		ENTRY() + ", " +
@@ -275,7 +266,7 @@ QString AsUtils::SONG_SEARCH_SQL(QString SearchStr, QString Bookid, bool SearchA
 	else
 	{
 		bool isNumeric;
-		int searchint = SearchStr.toInt(&isNumeric, 10);
+        SearchStr.toInt(&isNumeric, 10);
 		if (SearchAll)
 		{
 			if (isNumeric)
@@ -321,8 +312,8 @@ QString AsUtils::SONG_INSERT_SQL(QString Number, QString Title, QString Alias, Q
 {
 	return "INSERT INTO " + TBL_SONGS() +
 		"( " + NUMBER() + ", " + TITLE() + ", " + ALIAS() + ", " + CONTENT() + ", " + KEY() + ", " + BOOKID() + ", " +
-		CATEGORYID() + ", " + CREATED() + " ) VALUES ( " + Number + "', " + Title + "', " + Alias + "', " +
-		Content.replace("\r\n", "\n") + "', " + Key + "', " + Author + "', " + Bookid + "', " + Categoryid + ", " + TIMENOW() + ")";
+		CATEGORYID() + ", " + CREATED() + " ) VALUES ( " + Number + ", '" + Title + "', '" + Alias + "', '" +
+		Content.replace("\r\n", "\n") + "', '" + Key + "', '" + Author + "', " + Bookid + ", " + Categoryid + ", " + TIMENOW() + ")";
 }
 
 QString AsUtils::SONG_UPDATE_SQL(QString Number, QString Title, QString Alias, QString Content, QString Key, QString Author, QString Songid)
@@ -332,7 +323,7 @@ QString AsUtils::SONG_UPDATE_SQL(QString Number, QString Title, QString Alias, Q
 		"', " + AUTHOR() + "='" + Author + "', " + UPDATED() + "='" + TIMENOW() + "' WHERE " + SONGID() + "=" + Songid;
 }
 
-char* AsUtils::SONG_DELETE_SQL(QString Songid)
+char const *AsUtils::SONG_DELETE_SQL(QString Songid)
 {
 	QString SqlQuery = "DELETE FROM " + TBL_SONGS() + " WHERE " + SONGID() + "=" + Songid;
 	QByteArray bar = SqlQuery.toLocal8Bit();
@@ -385,53 +376,5 @@ QString AsUtils::SETTINGS_SQL()
 	SqlQuery.append("('search_allbooks', '1', " + TIMENOW() + "),");
 	SqlQuery.append("('app_theme', '2', " + TIMENOW() + ");");
 	SqlQuery.append("('dark_mode', '0', " + TIMENOW() + ");");
-	return SqlQuery;
-}
-QString AsUtils::VERSE_SELECT_SQL(QString Language)
-{
-	return "SELECT " +
-		TBL_VERSES() + Language + "." + VERSEID() + ", " +
-		TBL_VERSES() + Language + "." + TITLE() + ", " +
-		TBL_VERSES() + Language + "." + CONTENT() + ", " +
-		TBL_VERSES() + Language + "." + HIGHLIGHT() + ", " +
-		TBL_VERSES() + Language + "." + NOTES() +
-		" FROM " + TBL_VERSES() + Language;
-}
-
-QString AsUtils::VERSE_SEARCH_SQL(QString Search, QString Language)
-{
-	QString WhereQry = "";
-
-	QString SqlQuery = VERSE_SELECT_SQL(Language);
-
-	if (!Search.isEmpty())
-	{
-		WhereQry.append(TITLE() + " LIKE '%" + Search + "%' ");
-		WhereQry.append(" OR " + CONTENT() + " LIKE '%" + Search + "%'");
-	}
-
-	SqlQuery.append((WhereQry.isEmpty() ? "" : " WHERE " + WhereQry) + " ORDER BY " + VERSEID() + " ASC");
-	return SqlQuery;
-}
-
-QString AsUtils::VERSE_READING_SQL(QString Book, QString Chapter, QString Language)
-{
-	QString VersesTbl = TBL_VERSES() + Language;
-
-	QString SqlQuery = "SELECT " +
-		VersesTbl + "." + VERSEID() + ", " +
-		VersesTbl + "." + TITLE() + ", " +
-		VersesTbl + "." + CONTENT() + ", " +
-		TBL_BOOKS() + "." + CHAPTERS() + ", " +
-		TBL_BOOKS() + "." + SWAHILI() + ", " +
-		VersesTbl + "." + HIGHLIGHT() + ", " +
-		VersesTbl + "." + NOTES() +
-		" FROM " + VersesTbl;
-	
-	SqlQuery.append(" INNER JOIN " + TBL_BOOKS() + " ON " + 
-		TBL_BOOKS() + "." + TITLE() + "='" + Book + "'");
-	SqlQuery.append(" WHERE " + VersesTbl + "." + TITLE() + "='" + Book + " " + Chapter + "'");
-	SqlQuery.append(" ORDER BY " + VersesTbl + "." + VERSEID() + " ASC");
-
 	return SqlQuery;
 }

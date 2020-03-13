@@ -3,7 +3,6 @@
 
 #include "Qsci/qsciscintilla.h"
 
-class FindReplaceDialog;
 class QShortcut;
 
 /**
@@ -47,7 +46,6 @@ protected:
 
     int errorIndicatorNumber;
     bool showErrorIndicators;
-    FindReplaceDialog* findReplaceDialog;
     QShortcut* shortcutFind;
 
 private slots:
