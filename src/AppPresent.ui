@@ -69,72 +69,6 @@
          <layout class="QHBoxLayout" name="HeadLayout">
           <item>
            <widget class="QLabel" name="LblApp">
-            <property name="font">
-             <font>
-              <family>Trebuchet MS</family>
-              <pointsize>12</pointsize>
-             </font>
-            </property>
-            <property name="text">
-             <string> mBible version2.5.5</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QToolBar" name="ToolbarMain">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="windowTitle">
-             <string notr="true">toolBar1</string>
-            </property>
-            <property name="toolButtonStyle">
-             <enum>Qt::ToolButtonTextBesideIcon</enum>
-            </property>
-            <addaction name="actionTheme"/>
-            <addaction name="actionFont"/>
-            <addaction name="actionBold"/>
-            <addaction name="actionChorus"/>
-            <addaction name="actionLeft"/>
-            <addaction name="actionRight"/>
-            <addaction name="actionUp"/>
-            <addaction name="actionDown"/>
-            <addaction name="actionSmaller"/>
-            <addaction name="actionBigger"/>
-            <addaction name="actionClose"/>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item>
-         <layout class="QHBoxLayout" name="TopLayout">
-          <item>
-           <widget class="QLabel" name="LblKey">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="minimumSize">
-             <size>
-              <width>50</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLabel" name="LblTitle">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
               <horstretch>0</horstretch>
@@ -144,14 +78,11 @@
             <property name="font">
              <font>
               <family>Trebuchet MS</family>
-              <pointsize>25</pointsize>
+              <pointsize>12</pointsize>
              </font>
             </property>
             <property name="text">
-             <string>...</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignCenter</set>
+             <string> mBible version2.5.5</string>
             </property>
            </widget>
           </item>
@@ -177,31 +108,11 @@
          </layout>
         </item>
         <item>
-         <widget class="Line" name="LineTop">
-          <property name="frameShadow">
-           <enum>QFrame::Plain</enum>
-          </property>
-          <property name="lineWidth">
-           <number>3</number>
-          </property>
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <layout class="QHBoxLayout" name="MidLayout">
+         <layout class="QHBoxLayout" name="TopLayout">
           <item>
-           <widget class="QLabel" name="LblLeft">
-            <property name="text">
-             <string/>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLabel" name="LblContent">
+           <widget class="QLabel" name="TxtReading">
             <property name="sizePolicy">
-             <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
               <horstretch>0</horstretch>
               <verstretch>0</verstretch>
              </sizepolicy>
@@ -209,229 +120,135 @@
             <property name="font">
              <font>
               <family>Trebuchet MS</family>
-              <pointsize>30</pointsize>
+              <pointsize>18</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
              </font>
             </property>
-            <property name="text">
-             <string>...</string>
-            </property>
             <property name="alignment">
-             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-            </property>
-            <property name="wordWrap">
-             <bool>true</bool>
-            </property>
-            <property name="indent">
-             <number>2</number>
+             <set>Qt::AlignCenter</set>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QLabel" name="LblRight">
+           <widget class="QLabel" name="LblChapterNo">
             <property name="text">
+             <string>CHAPTER:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="CmbChapterNo">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>60</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Trebuchet MS</family>
+              <pointsize>15</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="editable">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="LblVerseNo">
+            <property name="text">
+             <string>VERSE:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="CmbVerseNo">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>60</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Trebuchet MS</family>
+              <pointsize>15</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="currentText">
              <string/>
             </property>
            </widget>
           </item>
+          <item>
+           <widget class="QToolBar" name="ToolbarMain">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="windowTitle">
+             <string notr="true">toolBar1</string>
+            </property>
+            <property name="toolButtonStyle">
+             <enum>Qt::ToolButtonTextBesideIcon</enum>
+            </property>
+            <addaction name="actionPrevious"/>
+            <addaction name="actionNext"/>
+            <addaction name="actionBigger"/>
+            <addaction name="actionSmaller"/>
+            <addaction name="actionBold"/>
+            <addaction name="actionFont"/>
+            <addaction name="actionTheme"/>
+            <addaction name="actionClose"/>
+           </widget>
+          </item>
          </layout>
         </item>
-       </layout>
-      </item>
-      <item>
-       <widget class="Line" name="LineDown">
-        <property name="frameShadow">
-         <enum>QFrame::Plain</enum>
-        </property>
-        <property name="lineWidth">
-         <number>3</number>
-        </property>
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <layout class="QHBoxLayout" name="horizontalLayout">
         <item>
-         <widget class="QLabel" name="LblBottomLeft">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>30</width>
-            <height>55</height>
-           </size>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="LblSongInfo">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="font">
-           <font>
-            <family>Trebuchet MS</family>
-            <pointsize>18</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string>...</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="LblAuthor">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="font">
-           <font>
-            <family>Trebuchet MS</family>
-            <pointsize>18</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string>...</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="LblVerse">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>250</width>
-            <height>0</height>
-           </size>
-          </property>
-          <property name="font">
-           <font>
-            <family>Trebuchet MS</family>
-            <pointsize>18</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string>...</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="BtnDown">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-            <horstretch>55</horstretch>
-            <verstretch>55</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="icon">
-           <iconset resource="images/images.qrc">
-            <normaloff>:/Down_Black.png</normaloff>:/images/Down_Black.png</iconset>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>50</width>
-            <height>50</height>
-           </size>
-          </property>
-          <property name="flat">
-           <bool>true</bool>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="LblBottom">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>55</width>
-            <height>55</height>
-           </size>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="BtnUp">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-            <horstretch>55</horstretch>
-            <verstretch>55</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="icon">
-           <iconset resource="images/images.qrc">
-            <normaloff>:/Up_Black.png</normaloff>:/Up_Black.png</iconset>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>50</width>
-            <height>50</height>
-           </size>
-          </property>
-          <property name="flat">
-           <bool>true</bool>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="LblBottomRight">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>30</width>
-            <height>55</height>
-           </size>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
+         <layout class="QHBoxLayout" name="MidLayout">
+          <item>
+           <widget class="QPlainTextEdit" name="TxtScripture">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Sunken</enum>
+            </property>
+            <property name="verticalScrollBarPolicy">
+             <enum>Qt::ScrollBarAsNeeded</enum>
+            </property>
+            <property name="horizontalScrollBarPolicy">
+             <enum>Qt::ScrollBarAlwaysOff</enum>
+            </property>
+            <property name="readOnly">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </item>
        </layout>
       </item>
@@ -440,17 +257,25 @@
    </layout>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
-  <action name="actionLeft">
+  <action name="actionPrevious">
+   <property name="icon">
+    <iconset resource="icons/icons.qrc">
+     <normaloff>:/icons/last.png</normaloff>:/icons/last.png</iconset>
+   </property>
    <property name="text">
-    <string/>
+    <string> </string>
    </property>
    <property name="shortcut">
     <string>Left</string>
    </property>
   </action>
-  <action name="actionRight">
+  <action name="actionNext">
+   <property name="icon">
+    <iconset resource="icons/icons.qrc">
+     <normaloff>:/icons/next.png</normaloff>:/icons/next.png</iconset>
+   </property>
    <property name="text">
-    <string/>
+    <string> </string>
    </property>
    <property name="shortcut">
     <string>Right</string>
@@ -465,22 +290,34 @@
    </property>
   </action>
   <action name="actionBigger">
+   <property name="icon">
+    <iconset resource="icons/icons.qrc">
+     <normaloff>:/icons/bigger.png</normaloff>:/icons/bigger.png</iconset>
+   </property>
    <property name="text">
-    <string/>
+    <string> </string>
    </property>
    <property name="shortcut">
-    <string>.</string>
+    <string>=</string>
    </property>
   </action>
   <action name="actionSmaller">
+   <property name="icon">
+    <iconset resource="icons/icons.qrc">
+     <normaloff>:/icons/smaller.png</normaloff>:/icons/smaller.png</iconset>
+   </property>
    <property name="text">
-    <string/>
+    <string> </string>
    </property>
    <property name="shortcut">
-    <string>,</string>
+    <string>-</string>
    </property>
   </action>
   <action name="actionFont">
+   <property name="icon">
+    <iconset resource="icons/icons.qrc">
+     <normaloff>:/icons/font.png</normaloff>:/icons/font.png</iconset>
+   </property>
    <property name="text">
     <string/>
    </property>
@@ -489,6 +326,10 @@
    </property>
   </action>
   <action name="actionBold">
+   <property name="icon">
+    <iconset resource="icons/icons.qrc">
+     <normaloff>:/icons/bold.png</normaloff>:/icons/bold.png</iconset>
+   </property>
    <property name="text">
     <string/>
    </property>
@@ -497,6 +338,10 @@
    </property>
   </action>
   <action name="actionTheme">
+   <property name="icon">
+    <iconset resource="icons/icons.qrc">
+     <normaloff>:/icons/view</normaloff>:/icons/view</iconset>
+   </property>
    <property name="text">
     <string/>
    </property>
@@ -504,33 +349,8 @@
     <string>T</string>
    </property>
   </action>
-  <action name="actionChorus">
-   <property name="text">
-    <string/>
-   </property>
-   <property name="shortcut">
-    <string>C</string>
-   </property>
-  </action>
-  <action name="actionUp">
-   <property name="text">
-    <string/>
-   </property>
-   <property name="shortcut">
-    <string>Up</string>
-   </property>
-  </action>
-  <action name="actionDown">
-   <property name="text">
-    <string/>
-   </property>
-   <property name="shortcut">
-    <string>Down</string>
-   </property>
-  </action>
  </widget>
  <resources>
-  <include location="images/images.qrc"/>
   <include location="icons/icons.qrc"/>
  </resources>
  <connections/>

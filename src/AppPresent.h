@@ -27,9 +27,7 @@ private slots:
     void SetUpStuff();
     void ReloadSettings();
     void ReloadControls();
-    void PresentSong(QString setsong);
-    void ContentPrepare();
-    void SetPresentation();
+    void PresentReading();
     void SetTheme();
 
     void on_actionClose_triggered();
@@ -41,12 +39,10 @@ private slots:
     void on_actionFont_triggered();
     void on_actionBold_triggered();
     void on_actionTheme_triggered();
-    void on_actionChorus_triggered();
-    void on_actionUp_triggered();
-    void on_actionDown_triggered();
-    void on_BtnDown_clicked();
-    void on_BtnUp_clicked();
 
+    void on_CmbChapterNo_currentIndexChanged(const QString &arg1);
+    void on_actionPrevious_triggered();
+    void on_actionNext_triggered();
 };
 
 #endif // APPPRESENT_H

@@ -107,10 +107,10 @@ void AsBase::NewBook(QString Title, QString Category, QString Tags, QString Cont
     uint timenow = QDateTime::currentSecsSinceEpoch();
     QString timeStr = QString::number(timenow);
 
-    QByteArray bar = AsUtils::BOOK_INSERT_SQL(Title, Category, Tags, Content, Position, Songs).toLocal8Bit();
-    char* sqlQuery = bar.data();
+    //QByteArray bar = AsUtils::BOOK_INSERT_SQL(Title, Category, Tags, Content, Position, Songs).toLocal8Bit();
+    //char* sqlQuery = bar.data();
 
-    rc = sqlite3_exec(db, sqlQuery, 0, 0, &zErrMsg);
+    //rc = sqlite3_exec(db, sqlQuery, 0, 0, &zErrMsg);
 
     if (rc != SQLITE_OK) sqlite3_free(zErrMsg);
     sqlite3_close(db);
@@ -145,12 +145,12 @@ void AsBase::UpdateSongCount(QString Bookid, QString Count)
 	uint timenow = QDateTime::currentSecsSinceEpoch();
 	QString timeStr = QString::number(timenow);
 	
-	QString SqlQuery = "UPDATE " + AsUtils::TBL_BOOKS() + " SET " + AsUtils::QCOUNT() + "='" + Count + "', " + 
+	//QString SqlQuery = "UPDATE " + AsUtils::TBL_BOOKS() + " SET " + AsUtils::QCOUNT() + "='" + Count + "', " + 
 		AsUtils::UPDATED() + "='" + AsUtils::TIMENOW() + "' WHERE " + AsUtils::BOOKID() + "=" + Bookid;
-	QByteArray bar = SqlQuery.toLocal8Bit();
-	char* sqlQuery = bar.data();
+	//QByteArray bar = SqlQuery.toLocal8Bit();
+	//char* sqlQuery = bar.data();
 
-	rc = sqlite3_exec(db, sqlQuery, 0, 0, &zErrMsg);
+	//rc = sqlite3_exec(db, sqlQuery, 0, 0, &zErrMsg);
 
 	if (rc != SQLITE_OK) sqlite3_free(zErrMsg);
 	sqlite3_close(db);
@@ -162,10 +162,10 @@ void AsBase::NewSong(QString Number, QString Title, QString Alias, QString Conte
     char* zErrMsg = NULL;
     int rc = sqlite3_open(AsUtils::APP_DB(), &db);
 
-    QByteArray bar = AsUtils::SONG_INSERT_SQL(Number, Title, Alias, Content, Key, Author, Bookid, Categoryid).toLocal8Bit();
-    char* sqlQuery = bar.data();
+    //QByteArray bar = AsUtils::SONG_INSERT_SQL(Number, Title, Alias, Content, Key, Author, Bookid, Categoryid).toLocal8Bit();
+    //char* sqlQuery = bar.data();
 
-    rc = sqlite3_exec(db, sqlQuery, 0, 0, &zErrMsg);
+    //rc = sqlite3_exec(db, sqlQuery, 0, 0, &zErrMsg);
 
     if (rc != SQLITE_OK) sqlite3_free(zErrMsg);
     sqlite3_close(db);

@@ -47,15 +47,15 @@ void AppSongbooks::LoadBooklist(QString searchstr)
 	sqlite3* db;
 	char* err_msg = NULL, ** qryResult = NULL;
 
-	QByteArray bar = AsUtils::BOOK_SEARCH_SQL(searchstr).toLocal8Bit();
-    char* sqlQuery = bar.data();
+	//QByteArray bar = AsUtils::BOOK_SEARCH_SQL(searchstr).toLocal8Bit();
+    //char* sqlQuery = bar.data();
 
     int row, col;
     int rc = sqlite3_open_v2(AsUtils::APP_DB(), &db, SQLITE_OPEN_READWRITE | SQLITE_OPEN_CREATE, NULL);
 
     if (rc == SQLITE_OK)
     {
-        rc = sqlite3_get_table(db, sqlQuery, &qryResult, &row, &col, &err_msg);
+        //rc = sqlite3_get_table(db, sqlQuery, &qryResult, &row, &col, &err_msg);
 		bookcount = 0;
         for (int i = 1; i < row + 1; i++)
         {
@@ -154,10 +154,10 @@ void AppSongbooks::SaveChanges()
 	Content = ui->TxtContent->toPlainText();
 	QString Songcount = AsBase::CountSongs(Songbookid);
 
-	QByteArray bar = AsUtils::BOOK_UPDATE_SQL(Songbookid, Title, Tags, Content, Songcount).toLocal8Bit();
-	char* sqlQuery = bar.data();
+	//QByteArray bar = AsUtils::BOOK_UPDATE_SQL(Songbookid, Title, Tags, Content, Songcount).toLocal8Bit();
+	//char* sqlQuery = bar.data();
 
-	rc = sqlite3_exec(db, sqlQuery, 0, 0, &zErrMsg);
+	//rc = sqlite3_exec(db, sqlQuery, 0, 0, &zErrMsg);
 
 	if (rc != SQLITE_OK) sqlite3_free(zErrMsg);
 	sqlite3_close(db);

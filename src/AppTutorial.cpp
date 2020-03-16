@@ -10,13 +10,7 @@ AppTutorial::AppTutorial(QWidget *parent) :
     ui->setupUi(this);
 	setStyleSheet("* { background-color: #FFFFFF; }");
 	ui->TabPage1->setStyleSheet("* { background-color: #EEEEEE; }");
-	ui->TabPage2->setStyleSheet("* { background-color: #EEEEEE; }");
-	ui->LblSidebar->setStyleSheet("* { padding-top: 30px; background: #FFFFFF url(:/images/Sidebar.png) center no-repeat; background-size: 100%; }");
-
-	HowsSidebar = "<html><head/><body>";
-	HowsSidebar.append("<p style=\" font-size:20pt; font-weight:600; color:#ffffff;\"><center>");
-	HowsSidebar.append("How<br/><br/><br/><br/><br/><br/><br/><br/>Works</center></p>");
-	HowsSidebar.append("</body></html>");
+	ui->LblSidebar->setStyleSheet("* { padding-top: 30px; background: #FFFFFF url(:/images/How.png) center no-repeat; background-size: 100%; }");
 
 	QByteArray hows_Sidebar = HowsSidebar.toLocal8Bit();
 	ui->LblSidebar->setText(QApplication::translate("AppTutorial", hows_Sidebar.data(), Q_NULLPTR));
@@ -25,9 +19,7 @@ AppTutorial::AppTutorial(QWidget *parent) :
 	HowsTab1.append("<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n");
 	HowsTab1.append("p, li { white-space: pre-wrap; }\n</style>\n</head>\n");
 	HowsTab1.append("<body style=\" font-family:'Trebuchet MS'; font-size:12pt; font-weight:400; font-style:normal;\">\n");
-	HowsTab1.append("<p><b>Preview Mode</b> is the page that shows up immediately after the splash screen. ");
-	HowsTab1.append("You might as well as call it the Homepage of the mBible app.");
-	HowsTab1.append("<br>Here are some of the Keyboard shortcuts that we have put in place for managing various");
+	HowsTab1.append("<p>Here are some of the Keyboard shortcuts that we have put in place for managing various");
 	HowsTab1.append(" actions on this page. Happy are you if you can know them quickly and easen your work!</p>");
 	HowsTab1.append("<p>Note: the statement <i>Press CTRL + B</i> simply means you <u>press these 2 keys together,");
 	HowsTab1.append(" at the same time.</p><p><ol>");

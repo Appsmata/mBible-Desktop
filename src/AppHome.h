@@ -16,6 +16,7 @@
 #include <QGroupBox>
 #include <QMessageBox>
 
+class RemoteDatabase;
 class QStandardItemModel;
 
 namespace Ui {
@@ -31,12 +32,14 @@ public:
     ~AppHome();
 
     DBBrowserDB& getDb() { return db; }
+    RemoteDatabase& getRemote() { return *m_remoteDb; }
 
 private:
     Ui::AppHome* ui;
 
     QStandardItemModel* songModel;
     DBBrowserDB db;
+    RemoteDatabase* m_remoteDb;
 
     void init();
 
@@ -45,6 +48,7 @@ public slots:
 
 private slots:
     void HomeInit();
+    //void SetDarkMode();
     void ReloadControls();
     void ReloadSettings();
 
@@ -52,49 +56,64 @@ private slots:
     void FontSmaller();
     void FontBigger();
     void FontBold();
+	void NextChapter();
+	void PreviousChapter();
 
-    bool PopulateSongbooks();
-    void PopulateSonglists(QString Searchstr);
-
+    void SearchBible(QString Searchstr);
+    //void on_CmbLanguages_currentIndexChanged(int index);
+    void on_CmbLanguages_currentIndexChanged(const QString &arg1);
     void on_TxtSearch_textChanged(const QString& searchstr);
-    void on_LstResults_clicked(const QModelIndex& selected);
-    void OpenSongPreview(const QModelIndex& selected);
+    void GotoReading();
 
-    void on_CmbSongbooks_currentIndexChanged(int index);
+    void on_ChkNewTestament_stateChanged(int arg1);
+    void on_ChkOldTestament_stateChanged(int arg1);
+
+	void on_LstResults_clicked(const QModelIndex& selected);
+    void on_CmbChapter_currentIndexChanged(const QString &arg1);
+	void GetReading(const QModelIndex& selected);
+	void OpenReading();
+
+    void on_actionPrevious_triggered();
+    void on_actionNext_triggered();
+
+	void on_actionBold_Text_triggered();
+	void on_actionChange_Font_triggered();
+	void on_actionSmaller_Font_triggered();
+	void on_actionBigger_Font_triggered();
+	void on_actionBold_triggered();
+	void on_actionSmaller_triggered();
+	void on_actionBigger_triggered();
+	void on_actionFont_triggered();
+
+    void on_actionTutorial_triggered();
+	void on_actionAbout_triggered();
+	void on_actionPreferences_triggered();
+	void on_actionManage_Settings_triggered();
+	void on_actionExit_triggered();
+
+    //void on_CmbChapter_currentIndexChanged(int index);
+    //void on_CmbVerse_currentIndexChanged(int index);
+
+    /*
+    void on_ChkOldTestament_triggered();
+    void on_ChkNewTestament_triggered();
+
     void on_LstResults_activated(const QModelIndex& index);
-    void on_LstResults_doubleClicked(const QModelIndex& index);
 
     void on_actionPresent_triggered();
-    void on_actionBold_Text_triggered();
-    void on_actionChange_Font_triggered();
-    void on_actionSmaller_Font_triggered();
-    void on_actionBigger_Font_triggered();
     void on_actionCheck_Updates_triggered();
     void on_actionContribute_triggered();
-    void on_actionDonate_triggered();
-    void on_actionDelete_Song_triggered();
-    void on_actionEdit_Song_triggered();
-    void on_actionNew_Song_triggered();
-    void on_actionManage_Settings_triggered();
+    void on_actionDonate_triggered()
     void on_actionReset_Settings_triggered();
-    void on_actionAbout_triggered();
-    void on_actionExit_triggered();
-    void on_actionBold_triggered();
-    void on_actionSmaller_triggered();
-    void on_actionBigger_triggered();
-    void on_actionPreferences_triggered();
-    void on_TxtSearch_returnPressed();
-    void on_actionEdit_triggered();
-    void on_actionNewsong_triggered();
-    void on_actionSongbooks_triggered();
     void on_actionOnline_triggered();
     void on_actionTutorial_triggered();
-    void on_actionFont_triggered();
-    void on_actionSearch_triggered();
-    void on_actionSearchAll_triggered();
-    void on_ChkSearchCriteria_clicked();
-    void on_actionDarkMode_triggered();
-    void on_ChkDarkMode_clicked();
+    void on_actionSearch_triggered();*/
+
+    void on_actionPresent_triggered();
+    void on_actionFont1_triggered();
+    void on_actionPresent_2_triggered();
+    void on_actionPrevious_2_triggered();
+    void on_actionNext_2_triggered();
 };
 
 #endif // APPHOME_H

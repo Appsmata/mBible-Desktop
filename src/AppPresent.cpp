@@ -9,12 +9,11 @@
 #include "RunSql.h"
 #include "sqlitetablemodel.h"
 
-std::vector<QString> songverses1, songverses2, labels, view_set, view_fonts;
-int this_book, this_song, slides, slideno, slideindex, mainfont, smallfont, view_font_size, view_fonttype, view_theme;
-QString setsong, bookid, songid, number, title, alias, content, key, author, book, chorus, slide, view_fonty;
-bool haschorus, isBold;
+std::vector<QString> view_set, view_fonts;
+int mainfont, smallfont, view_font_size, view_fonttype, view_theme, view_chapters;
+QString view_language, view_book, view_chapter, view_verse, view_fonty;
+bool isViewReady, isBold;
 QFont PresentFont;
-QIcon iconDownWhite, iconDownBlack, iconUpWhite, iconUpBlack;
 
 AppPresent::AppPresent(QWidget *parent) :
     QMainWindow(parent),
@@ -23,9 +22,12 @@ AppPresent::AppPresent(QWidget *parent) :
     ui->setupUi(this);
 	SetUpStuff();
 	
-	this_song = view_set[23].toInt();
-	PresentSong(view_set[23]);
+	PresentReading();
+	for (int c = 1; c < view_chapters; c++) ui->CmbChapterNo->addItem(QString::number(c));
+	isViewReady = true;
+
 	SetTheme();
+	ui->TxtScripture->setFocus();
 }
 
 void AppPresent::SetUpStuff()
@@ -44,12 +46,6 @@ void AppPresent::SetUpStuff()
 	view_fonts.push_back("Trebuchet MS");
 	view_fonts.push_back("Verdana");
 
-	iconDownWhite.addFile(QString::fromUtf8(":/images/Down_White.png"), QSize(), QIcon::Normal, QIcon::Off);
-	iconDownBlack.addFile(QString::fromUtf8(":/images/Down_Black.png"), QSize(), QIcon::Normal, QIcon::Off);
-
-	iconUpWhite.addFile(QString::fromUtf8(":/images/Up_White.png"), QSize(), QIcon::Normal, QIcon::Off);
-	iconUpBlack.addFile(QString::fromUtf8(":/images/Up_Black.png"), QSize(), QIcon::Normal, QIcon::Off);
-
 	view_set = AsBase::AppSettings();
 	ui->LblApp->setText(qApp->applicationName() + " " + qApp->applicationVersion() + " - " + view_set[1]);
 	ReloadSettings();
@@ -58,8 +54,6 @@ void AppPresent::SetUpStuff()
 	{
 		ui->BtnClose->hide();
 	}
-	ui->BtnDown->hide();
-	ui->BtnUp->hide();
 
 	if (view_set[12] == "Arial") view_fonttype = 1;
 	else if (view_set[12] == "Calibri") view_fonttype = 2;
@@ -77,121 +71,15 @@ void AppPresent::SetUpStuff()
 	view_theme = view_set[25].toInt();
 }
 
-void AppPresent::SetTheme()
-{
-	switch (view_theme)
-	{
-		case 1:
-			ui->WidgetCentral->setStyleSheet("* { background-color: #000000; color: #FFFFFF; }");
-			ui->statusbar->setStyleSheet("* { background-color: #000000; color: #FFFFFF; }");
-			ui->BtnDown->setIcon(iconDownWhite);
-			ui->BtnUp->setIcon(iconUpWhite);
-			break;
-
-		case 2:
-			ui->WidgetCentral->setStyleSheet("* { background-color: #FFFFFF; color: #000000; }");
-			ui->statusbar->setStyleSheet("* { background-color: #FFFFFF; color: #000000; }");
-			ui->BtnDown->setIcon(iconDownBlack);
-			ui->BtnUp->setIcon(iconUpBlack);
-			break;
-
-		case 3:
-			ui->WidgetCentral->setStyleSheet("* { background-color: #A9A9A9; color: #FFFFFF; }");
-			ui->statusbar->setStyleSheet("* { background-color: #A9A9A9; color: #FFFFFF; }");
-			ui->BtnDown->setIcon(iconDownWhite);
-			ui->BtnUp->setIcon(iconUpWhite);
-			break;
-
-		case 4:
-			ui->WidgetCentral->setStyleSheet("* { background-color: #FFFFFF; color: #000000; }");
-			ui->statusbar->setStyleSheet("* { background-color: #FFFFFF; color: #000000; }");
-			ui->BtnDown->setIcon(iconDownBlack);
-			ui->BtnUp->setIcon(iconUpBlack);
-			break;
-
-		case 5:
-			ui->WidgetCentral->setStyleSheet("* { background-color: #0000FF; color: #FFFFFF; }");
-			ui->statusbar->setStyleSheet("* { background-color: #0000FF; color: #FFFFFF; }");
-			ui->BtnDown->setIcon(iconDownWhite);
-			ui->BtnUp->setIcon(iconUpWhite);
-			break;
-
-		case 6:
-			ui->WidgetCentral->setStyleSheet("* { background-color: #FFFFFF; color: #0000FF; }");
-			ui->statusbar->setStyleSheet("* { background-color: #FFFFFF; color: #0000FF; }");
-			ui->BtnDown->setIcon(iconDownBlack);
-			ui->BtnUp->setIcon(iconUpBlack);
-			break;
-
-		case 7:
-			ui->WidgetCentral->setStyleSheet("* { background-color: #00FF00; color: #FFFFFF; }");
-			ui->statusbar->setStyleSheet("* { background-color: #00FF00; color: #FFFFFF; }");
-			ui->BtnDown->setIcon(iconDownWhite);
-			ui->BtnUp->setIcon(iconUpWhite);
-			break;
-
-		case 8:
-			ui->WidgetCentral->setStyleSheet("* { background-color: #FFFFFF; color: #00FF00; }");
-			ui->statusbar->setStyleSheet("* { background-color: #FFFFFF; color: #00FF00; }");
-			ui->BtnDown->setIcon(iconDownBlack);
-			ui->BtnUp->setIcon(iconUpBlack);
-			break;
-
-		case 9:
-			ui->WidgetCentral->setStyleSheet("* { background-color: #FFA500; color: #FFFFFF; }");
-			ui->statusbar->setStyleSheet("* { background-color: #FFA500; color: #FFFFFF; }");
-			ui->BtnDown->setIcon(iconDownWhite);
-			ui->BtnUp->setIcon(iconUpWhite);
-			break;
-
-		case 10:
-			ui->WidgetCentral->setStyleSheet("* { background-color: #FFFFFF; color: #FFA500; }");
-			ui->statusbar->setStyleSheet("* { background-color: #FFFFFF; color: #FFA500; }");
-			ui->BtnDown->setIcon(iconDownBlack);
-			ui->BtnUp->setIcon(iconUpBlack);
-			break;
-
-		case 11:
-			ui->WidgetCentral->setStyleSheet("* { background-color: #FF0000; color: #FFFFFF; }");
-			ui->statusbar->setStyleSheet("* { background-color: #FF0000; color: #FFFFFF; }");
-			ui->BtnDown->setIcon(iconDownWhite);
-			ui->BtnUp->setIcon(iconUpWhite);
-			break;
-
-		case 12:
-			ui->WidgetCentral->setStyleSheet("* { background-color: #FFFFFF; color: #FF0000; }");
-			ui->statusbar->setStyleSheet("* { background-color: #FFFFFF; color: #FF0000; }");
-			ui->BtnDown->setIcon(iconDownBlack);
-			ui->BtnUp->setIcon(iconUpBlack);
-			break;
-
-		case 13:
-			ui->WidgetCentral->setStyleSheet("* { background-color: #000000; color: #FFFF00; }");
-			ui->statusbar->setStyleSheet("* { background-color: #000000; color: #FFFF00; }");
-			ui->BtnDown->setIcon(iconDownWhite);
-			ui->BtnUp->setIcon(iconUpWhite);
-			break;
-
-		case 14:
-			ui->WidgetCentral->setStyleSheet("* { background-color: #FFFF00; color: #000000; }");
-			ui->statusbar->setStyleSheet("* { background-color: #FFFF00; color: #000000; }");
-			ui->BtnDown->setIcon(iconDownBlack);
-			ui->BtnUp->setIcon(iconUpBlack);
-			break;
-
-		case 15:
-			ui->WidgetCentral->setStyleSheet("* { background-color: #000000; color: #FFFFFF; }");
-			ui->statusbar->setStyleSheet("* { background-color: #000000; color: #FFFFFF; }");
-			ui->BtnDown->setIcon(iconDownWhite);
-			ui->BtnUp->setIcon(iconUpWhite);
-			break;
-
-	}
-}
-
 void AppPresent::ReloadSettings()
 {
 	view_font_size = view_set[14].toInt();
+
+	view_verse = "1";
+	view_book = view_set[5];
+	view_chapter = view_set[6];
+	view_language = view_set[3].toLower();
+	ui->TxtReading->setText(view_book + " " + view_chapter);
 
 	PresentFont.setFamily(view_set[15]);
 	PresentFont.setPointSize(view_font_size);
@@ -203,116 +91,133 @@ void AppPresent::ReloadSettings()
 
 void AppPresent::ReloadControls()
 {
-	//ui->LblKey->setFont(PresentFont);
-	ui->LblTitle->setFont(PresentFont);
-	//ui->LblSongInfo->setFont(PresentFont);
-	//ui->LblVerse->setFont(PresentFont);
-	ui->LblContent->setFont(PresentFont);
+	ui->TxtReading->setFont(PresentFont);
+	ui->TxtScripture->setFont(PresentFont);
 }
 
-void AppPresent::PresentSong(QString setsongid)
+void AppPresent::SetTheme()
 {
-	slides = 0;
-	if (songverses1.size() > 0) songverses1.clear();
-	if (songverses2.size() > 0) songverses2.clear();
+	switch (view_theme)
+	{
+	case 1:
+		ui->WidgetCentral->setStyleSheet("* { background-color: #000000; color: #FFFFFF; }");
+		ui->statusbar->setStyleSheet("* { background-color: #000000; color: #FFFFFF; }");
+		break;
 
-	sqlite3* songsDb;
+	case 2:
+		ui->WidgetCentral->setStyleSheet("* { background-color: #FFFFFF; color: #000000; }");
+		ui->statusbar->setStyleSheet("* { background-color: #FFFFFF; color: #000000; }");
+		break;
+
+	case 3:
+		ui->WidgetCentral->setStyleSheet("* { background-color: #A9A9A9; color: #FFFFFF; }");
+		ui->statusbar->setStyleSheet("* { background-color: #A9A9A9; color: #FFFFFF; }");
+		break;
+
+	case 4:
+		ui->WidgetCentral->setStyleSheet("* { background-color: #FFFFFF; color: #000000; }");
+		ui->statusbar->setStyleSheet("* { background-color: #FFFFFF; color: #000000; }");
+		break;
+
+	case 5:
+		ui->WidgetCentral->setStyleSheet("* { background-color: #0000FF; color: #FFFFFF; }");
+		ui->statusbar->setStyleSheet("* { background-color: #0000FF; color: #FFFFFF; }");
+		break;
+
+	case 6:
+		ui->WidgetCentral->setStyleSheet("* { background-color: #FFFFFF; color: #0000FF; }");
+		ui->statusbar->setStyleSheet("* { background-color: #FFFFFF; color: #0000FF; }");
+		break;
+
+	case 7:
+		ui->WidgetCentral->setStyleSheet("* { background-color: #00FF00; color: #FFFFFF; }");
+		ui->statusbar->setStyleSheet("* { background-color: #00FF00; color: #FFFFFF; }");
+		break;
+
+	case 8:
+		ui->WidgetCentral->setStyleSheet("* { background-color: #FFFFFF; color: #00FF00; }");
+		ui->statusbar->setStyleSheet("* { background-color: #FFFFFF; color: #00FF00; }");
+		break;
+
+	case 9:
+		ui->WidgetCentral->setStyleSheet("* { background-color: #FFA500; color: #FFFFFF; }");
+		ui->statusbar->setStyleSheet("* { background-color: #FFA500; color: #FFFFFF; }");
+		break;
+
+	case 10:
+		ui->WidgetCentral->setStyleSheet("* { background-color: #FFFFFF; color: #FFA500; }");
+		ui->statusbar->setStyleSheet("* { background-color: #FFFFFF; color: #FFA500; }");
+		break;
+
+	case 11:
+		ui->WidgetCentral->setStyleSheet("* { background-color: #FF0000; color: #FFFFFF; }");
+		ui->statusbar->setStyleSheet("* { background-color: #FF0000; color: #FFFFFF; }");
+		break;
+
+	case 12:
+		ui->WidgetCentral->setStyleSheet("* { background-color: #FFFFFF; color: #FF0000; }");
+		ui->statusbar->setStyleSheet("* { background-color: #FFFFFF; color: #FF0000; }");
+		break;
+
+	case 13:
+		ui->WidgetCentral->setStyleSheet("* { background-color: #000000; color: #FFFF00; }");
+		ui->statusbar->setStyleSheet("* { background-color: #000000; color: #FFFF00; }");
+		break;
+
+	case 14:
+		ui->WidgetCentral->setStyleSheet("* { background-color: #FFFF00; color: #000000; }");
+		ui->statusbar->setStyleSheet("* { background-color: #FFFF00; color: #000000; }");
+		break;
+
+	case 15:
+		ui->WidgetCentral->setStyleSheet("* { background-color: #000000; color: #FFFFFF; }");
+		ui->statusbar->setStyleSheet("* { background-color: #000000; color: #FFFFFF; }");
+		break;
+
+	}
+}
+
+void AppPresent::PresentReading()
+{
+	sqlite3* db;
 	char* err_msg = NULL, ** qryResult = NULL;
-	int row, col, rc = sqlite3_open_v2(AsUtils::APP_DB(), &songsDb, SQLITE_OPEN_READWRITE | SQLITE_OPEN_CREATE, NULL);
-	
-	QByteArray bar = AsUtils::SONG_SINGLE_SQL(setsongid).toLocal8Bit();
-	char* sqlQuery = bar.data();
-	rc = sqlite3_get_table(songsDb, sqlQuery, &qryResult, &row, &col, &err_msg);
+	int row, col, rc = sqlite3_open_v2(AsUtils::APP_DB(), &db, SQLITE_OPEN_READWRITE | SQLITE_OPEN_CREATE, NULL);
+
+	QByteArray bar2 = AsUtils::VERSE_READING_SQL(view_book, view_chapter, view_language).toLocal8Bit();
+	char* sqlQuery2 = bar2.data();
 
 	if (rc == SQLITE_OK)
 	{
-		number = *(qryResult + 1 * col + 2);
-		title = number + ". " + *(qryResult + 1 * col + 4);
-		alias = *(qryResult + 1 * col + 3);
-		content = *(qryResult + 1 * col + 6);
-		key = *(qryResult + 1 * col + 7);
-		author = *(qryResult + 1 * col + 8);
-		book = number + "# " + *(qryResult + 1 * col + 12);
+		rc = sqlite3_get_table(db, sqlQuery2, &qryResult, &row, &col, &err_msg);
 
-		sqlite3_free_table(qryResult);
-		sqlite3_close(songsDb);
+		QString Scripture = "";
+		int rows = row + 1;
 
-		ContentPrepare();
-	}
-}
-
-void AppPresent::ContentPrepare()
-{
-	if (content.contains("CHORUS")) haschorus = true;
-	else haschorus = false;
-
-	QStringList tokens = content.split("\\n\\n");
-
-	if (tokens.length() > 1)
-	{
-		for (int i = 0; i < tokens.length(); i++)
+		if (rc == SQLITE_OK)
 		{
-			QString token = tokens[i];
-			if (haschorus)
+			for (int r = 1; r < rows; r++)
 			{
-				if (token.contains("CHORUS")) chorus = token.replace("CHORUS\\n", "");
-				else songverses1.push_back(token);
+				QString verseid = *(qryResult + r * col + 0);
+				QString reading = *(qryResult + r * col + 2);
+
+				if (r != rows) Scripture.append(reading + "\n");
+
+				ui->CmbVerseNo->addItem(QString::number(r));
 			}
-			else songverses2.push_back(token);
+			ui->TxtScripture->setPlainText(Scripture);
+
+			QString book_chapters = *(qryResult + 1 * col + 3);
+			QString book_swahili = *(qryResult + 1 * col + 4);
+
+			if (view_language == "swahili")
+			{
+				ui->TxtReading->setText(book_swahili + " " + view_chapter);
+			}
+			view_chapters = book_chapters.toInt();
+
+			sqlite3_free_table(qryResult);
+			sqlite3_close(db);
 		}
-	}
-	
-	if (haschorus)
-	{
-		int k = 1;
-		for (std::vector<QString>::iterator i = songverses1.begin(); i != songverses1.end(); ++i) 
-		{
-			songverses2.push_back(*i);
-			songverses2.push_back(chorus);
-			slides = slides + 2;
-
-			QString label = "VERSE " + QString::number(k);
-			label.append(" / " + QString::number(songverses1.size()));
-			labels.push_back(label);
-			labels.push_back("CHORUS ");
-			k++;
-		}
-	}
-	else slides = songverses2.size();
-	slideindex = 0;
-	SetPresentation();
-}
-
-void AppPresent::SetPresentation()
-{
-	slideno = slideindex + 1;
-	slide = songverses2[slideindex];
-	ui->LblTitle->setText(AsBase::ReplaceView(title));
-	ui->LblContent->setText(AsBase::ReplaceView(slide));
-	ui->LblKey->setText(key);
-	ui->LblAuthor->setText(author);
-	ui->LblSongInfo->setText(book);
-	ui->LblVerse->setText(labels[slideindex]);
-
-	if (slideindex == 0)
-	{
-		ui->BtnDown->show();
-		ui->LblBottom->show();
-		ui->BtnUp->hide();
-	}
-
-	else if (slideindex == (slides - 1))
-	{
-		ui->BtnDown->hide();
-		ui->LblBottom->show();
-		ui->BtnUp->show();
-	}
-
-	else
-	{
-		ui->BtnDown->show();
-		ui->LblBottom->hide();
-		ui->BtnUp->show();
 	}
 }
 
@@ -420,44 +325,26 @@ void AppPresent::on_actionTheme_triggered()
 	SetTheme();
 }
 
-void AppPresent::on_actionChorus_triggered()
-{
 
+void AppPresent::on_CmbChapterNo_currentIndexChanged(const QString &arg1)
+{   
+	if (isViewReady) PresentReading();
 }
 
-void AppPresent::on_actionUp_triggered()
+void AppPresent::on_actionPrevious_triggered()
 {
-	if (slideindex != 0)
+	if (isViewReady && ui->CmbChapterNo->currentIndex() < view_chapters)
 	{
-		slideindex = slideindex - 1;
-		SetPresentation();
+		ui->CmbChapterNo->setCurrentIndex(ui->CmbChapterNo->currentIndex() + 1);
+		PresentReading();
 	}
 }
 
-void AppPresent::on_actionDown_triggered()
+void AppPresent::on_actionNext_triggered()
 {
-	if (slideindex != (slides - 1))
+	if (isViewReady && ui->CmbChapterNo->currentIndex() > 0)
 	{
-		slideindex = slideindex + 1;
-		SetPresentation();
+		ui->CmbChapterNo->setCurrentIndex(ui->CmbChapterNo->currentIndex() - 1);
+		PresentReading();
 	}
 }
-
-void AppPresent::on_BtnUp_clicked()
-{
-	if (slideindex != 0)
-	{
-		slideindex = slideindex - 1;
-		SetPresentation();
-	}
-}
-
-void AppPresent::on_BtnDown_clicked()
-{
-	if (slideindex != (slides - 1))
-	{
-		slideindex = slideindex + 1;
-		SetPresentation();
-	}
-}
-

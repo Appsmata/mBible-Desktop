@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "mBible"
-#define MyAppVersion "2.5.6.6"
+#define MyAppVersion "0.0.6.3"
 #define MyAppPublisher "Appsmata Solutions"
 #define MyAppURL "https://www.appsmata.com"
 #define MyAppExeName "mBible.exe"
@@ -10,7 +10,7 @@
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application. Do not use the same AppId value in installers for other applications.
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
-AppId={{A3DC53F5-23E9-474B-AA25-C51D185291FF}
+AppId={{0F3B4E69-99CB-4236-84DB-F1FEDAE81D51}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 VersionInfoVersion={#MyAppVersion}
@@ -25,9 +25,9 @@ DisableProgramGroupPage=yes
 UsedUserAreasWarning=no
 ; Remove the following line to run in administrative install mode (install for all users.)
 PrivilegesRequired=lowest
-OutputDir=D:\Cpp\vsongbook4pc\publish
+OutputDir=D:\Cpp\mbible4pc\publish
 OutputBaseFilename=vSongBook_{#MyAppVersion}_x64
-SetupIconFile=D:\Cpp\vsongbook4pc\publish\vsongbook.ico
+SetupIconFile=D:\Cpp\mbible4pc\publish\mbible.ico
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
@@ -40,17 +40,17 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescription: "{cm:AdditionalIcons}"; OnlyBelowVersion: 6.1; Check: not IsAdminInstallMode
 
 [Files]
-Source: "D:\Cpp\vsongbook4pc\Release\mBible.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Cpp\vsongbook4pc\Release\Qt5Concurrent.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Cpp\vsongbook4pc\Release\Qt5Core.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Cpp\vsongbook4pc\Release\Qt5Gui.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Cpp\vsongbook4pc\Release\Qt5Network.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Cpp\vsongbook4pc\Release\Qt5PrintSupport.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Cpp\vsongbook4pc\Release\Qt5Widgets.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Cpp\vsongbook4pc\Release\Qt5Xml.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Cpp\vsongbook4pc\Release\sqlite3.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Cpp\vsongbook4pc\Release\Data\*"; DestDir: "{app}\Data"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "D:\Cpp\vsongbook4pc\Release\res\*"; DestDir: "{app}\res"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "D:\Cpp\mbible4pc\Release\mBible.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\Cpp\mbible4pc\Release\Qt5Concurrent.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\Cpp\mbible4pc\Release\Qt5Core.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\Cpp\mbible4pc\Release\Qt5Gui.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\Cpp\mbible4pc\Release\Qt5Network.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\Cpp\mbible4pc\Release\Qt5PrintSupport.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\Cpp\mbible4pc\Release\Qt5Widgets.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\Cpp\mbible4pc\Release\Qt5Xml.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\Cpp\mbible4pc\Release\sqlite3.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\Cpp\mbible4pc\Release\Data\*"; DestDir: "{app}\Data"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "D:\Cpp\mbible4pc\Release\res\*"; DestDir: "{app}\res"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "D:\Cpp\dependencies\licenses\*"; DestDir: "{app}\licenses"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "D:\Cpp\dependencies\platforms\*"; DestDir: "{app}\platforms"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "D:\Cpp\dependencies\printsupport\*"; DestDir: "{app}\printsupport"; Flags: ignoreversion recursesubdirs createallsubdirs 

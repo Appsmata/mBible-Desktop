@@ -126,13 +126,11 @@ set(SQLB_HDR
 
 set(SQLB_MOC_HDR
 	src/AppAbout.h
-	src/AppEditor.h
 	src/AppHome.h
 	src/Application.h
 	src/AppOnline.h
 	src/AppPreferences.h
 	src/AppPresent.h
-	src/AppSongbooks.h
 	src/AppTutorial.h
 	src/AsBase.h
 	src/AsDelegate.h
@@ -169,13 +167,11 @@ set(SQLB_SRC
 	src/sql/Query.cpp
 	src/sql/sqlitetypes.cpp
 	src/AppAbout.cpp
-	src/AppEditor.cpp
 	src/AppHome.cpp
 	src/Application.cpp
 	src/AppOnline.cpp
 	src/AppPreferences.cpp
 	src/AppPresent.cpp
-	src/AppSongbooks.cpp
 	src/AppTutorial.cpp
 	src/AsBase.cpp
 	src/AsDelegate.cpp
@@ -208,13 +204,11 @@ set(SQLB_SRC
 
 set(SQLB_FORMS
 	src/AppAbout.ui
-	src/AppEditor.ui
 	src/AppHome.ui
 	src/AppOnline.ui
 	src/AppPreferences.ui
 	src/AppPresent.ui
 	src/AppTutorial.ui
-	src/AppSongbooks.ui
 )
 
 set(SQLB_RESOURCES

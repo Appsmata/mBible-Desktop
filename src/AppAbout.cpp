@@ -15,12 +15,7 @@ AppAbout::AppAbout(QWidget *parent) :
 	ui->TabPage2->setStyleSheet("* { background-color: #EEEEEE; }");
 	ui->TabPage3->setStyleSheet("* { background-color: #EEEEEE; }");
 	ui->TabPage4->setStyleSheet("* { background-color: #EEEEEE; }");
-	ui->LblSidebar->setStyleSheet("* { padding-top: 30px; background: #FFFFFF url(:/images/Sidebar.png) center no-repeat; background-size: 100%; }");
-
-	AboutSidebar = "<html><head/><body>";
-	AboutSidebar.append("<p style=\" font-size:20pt; font-weight:600; color:#ffffff;\"><center>");
-	AboutSidebar.append("About<br/><br/><br/><br/><br/><br/><br/>");
-	AboutSidebar.append("<img src=\":/images/version.png\"/></p></body></html>");
+	ui->LblSidebar->setStyleSheet("* { padding-top: 30px; background: #FFFFFF url(:/images/About.png) center no-repeat; background-size: 100%; }");
 
 	QByteArray about_Sidebar = AboutSidebar.toLocal8Bit();
 	ui->LblSidebar->setText(QApplication::translate("AppAbout", about_Sidebar.data(), Q_NULLPTR));
