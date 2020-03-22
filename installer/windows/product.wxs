@@ -104,14 +104,14 @@
                     <Component><File Source="$(var.OpenSSLPath)\ssleay32.dll" /></Component>
                     <Component><File Source="$(var.SQLCipherPath)\sqlcipher.dll" /></Component>
                     <Component><File Source="$(var.SQLitePath)\sqlite3.dll" /></Component>
-                    <Component><File Source="$(var.SQLiteExePath)\vSongBook.exe" Checksum="yes" /></Component>
+                    <Component><File Source="$(var.SQLiteExePath)\DB Browser for SQLite.exe" Checksum="yes" /></Component>
                     <Component><File Source="$(var.SQLCipherExePath)\DB Browser for SQLCipher.exe" Checksum="yes" /></Component>
                 </Directory>
             </Directory>
             <Directory Id="DesktopFolder">
                 <Component Id="SQLiteDesktopShortcut" Transitive="yes">
                     <Condition>SHORTCUT_SQLITE_DESKTOP</Condition>
-                    <Shortcut Id="SLDSC" Name="DB Browser (SQLite)" Description="$(var.AppComments)" Target="[INSTALLDIR]vSongBook.exe" WorkingDirectory="INSTALLDIR" />
+                    <Shortcut Id="SLDSC" Name="DB Browser (SQLite)" Description="$(var.AppComments)" Target="[INSTALLDIR]DB Browser for SQLite.exe" WorkingDirectory="INSTALLDIR" />
                     <RegistryValue Root="HKLM" Key="Software\$(var.Name)" Name="SQLiteDesktopShortcut" Type="integer" Value="1" KeyPath="yes"/>
                 </Component>
                 <Component Id="SQLCipherDesktopShortcut" Transitive="yes">
@@ -123,7 +123,7 @@
             <Directory Id="ProgramMenuFolder">
                 <Component Id="SQLiteProgramMenuShortcut" Transitive="yes">
                     <Condition>SHORTCUT_SQLITE_PROGRAMMENU</Condition>
-                    <Shortcut Id="SLPMSC" Name="DB Browser (SQLite)" Description="$(var.AppComments)" Target="[INSTALLDIR]vSongBook.exe" WorkingDirectory="INSTALLDIR" />
+                    <Shortcut Id="SLPMSC" Name="DB Browser (SQLite)" Description="$(var.AppComments)" Target="[INSTALLDIR]DB Browser for SQLite.exe" WorkingDirectory="INSTALLDIR" />
                     <RegistryValue Root="HKLM" Key="Software\$(var.Name)" Name="SQLiteProgramMenuShortcut" Type="integer" Value="1" KeyPath="yes"/>
                 </Component>
                 <Component Id="SQLCipherProgramMenuShortcut" Transitive="yes">
@@ -277,7 +277,7 @@
         remove it before installing the application with the new MSI installer.
 
         NSIS installer writes the following key "HKLM\Software\<Company>\<Product>" in the registry after installation.
-        So the right key to search for is "HKLM\Software\vSongBook Team\vSongBook".
+        So the right key to search for is "HKLM\Software\DB Browser for SQLite Team\DB Browser for SQLite".
 
         But the installer itself is a 32-bit application, and it can't write to the 64-bit registry. This works without
         a problem on 32-bit Windows. On 64-bit Winodws however, the key is written in the 32-bit registry, under the
@@ -289,7 +289,7 @@
 
         <!-- Search the registry to find the location of NSIS installation folder, and set "NSIS_INSTALLDIR" to its path. -->
         <Property Id="NSIS_INSTALLDIR">
-            <RegistrySearch Id="RS_NSIS" Root="HKLM" Key="Software\vSongBook Team\vSongBook" Win64="no" Type="raw" />
+            <RegistrySearch Id="RS_NSIS" Root="HKLM" Key="Software\DB Browser for SQLite Team\DB Browser for SQLite" Win64="no" Type="raw" />
         </Property>
 
         <!-- If registry search was successful, "NSIS_UNINSTALLER" property will hold the full path to "Uninstall.exe" -->

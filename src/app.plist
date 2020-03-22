@@ -29,7 +29,7 @@
 				<string>sqbpro</string>
 			</array>
 			<key>CFBundleTypeName</key>
-			<string>vSongBook Project</string>
+			<string>mBible Project</string>
 			<key>CFBundleTypeOSTypes</key>
 			<array>
 				<string>****</string>
@@ -55,7 +55,7 @@
 	<key>CFBundleExecutable</key>
 	<string>@EXECUTABLE@</string>
 	<key>CFBundleGetInfoString</key>
-	<string>3.11.99</string>
+	<string>2.5.6</string>
 	<key>CFBundleIconFile</key>
 	<string>@ICON@</string>
 	<key>CFBundleIdentifier</key>
@@ -63,15 +63,15 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>vSongBook</string>
+	<string>mBible</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>3.11.99</string>
+	<string>2.5.6</string>
 	<key>CFBundleSignature</key>
 	<string>SqLB</string>
 	<key>CFBundleVersion</key>
-	<string>3.11.99</string>
+	<string>2.5.6</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
 	<key>NSHighResolutionCapable</key>

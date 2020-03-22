@@ -1,3 +1,8 @@
+#include "Application.h"
+#include "ui/AppHome.h"
+#include "Settings.h"
+#include "version.h"
+
 #include <QFile>
 #include <QFileOpenEvent>
 #include <QTranslator>
@@ -7,19 +12,13 @@
 #include <QDebug>
 #include <QAction>
 
-#include "Application.h"
-#include "MainWindow.h"
-#include "BibleHome.h"
-#include "Settings.h"
-#include "version.h"
-
 Application::Application(int& argc, char** argv) :
     QApplication(argc, argv)
 {
-    // Set organisation and application names
+	// Set organisation and application names
     setOrganizationName("Appsmata Solutions");
     setApplicationName("mBible");
-	setApplicationVersion("0.0.5");
+	setApplicationVersion(APP_VERSION);
 
     // Set character encoding to UTF8
     QTextCodec::setCodecForLocale(QTextCodec::codecForName("UTF-8"));
@@ -78,7 +77,7 @@ Application::Application(int& argc, char** argv) :
     QString fileToOpen;
     QString tableToBrowse;
     QStringList sqlToExecute;
-    bool readOnly = false;
+    //bool readOnly = false;
     m_dontShowMainWindow = false;
     for(int i=1;i<arguments().size();i++)
     {
@@ -99,7 +98,7 @@ Application::Application(int& argc, char** argv) :
             qWarning() << qPrintable(tr("  [file]\t\tOpen this SQLite database"));
             m_dontShowMainWindow = true;
         } else if(arguments().at(i) == "-v" || arguments().at(i) == "--version") {
-            qWarning() << qPrintable(tr("This is vSongBook version %1.").arg(versionString()));
+            qWarning() << qPrintable(tr("This is mBible version %1.").arg(versionString()));
             m_dontShowMainWindow = true;
         } else if(arguments().at(i) == "-s" || arguments().at(i) == "--sql") {
             // Run SQL file: If file exists add it to list of scripts to execute
@@ -117,7 +116,7 @@ Application::Application(int& argc, char** argv) :
         } else if(arguments().at(i) == "-q" || arguments().at(i) == "--quit") {
             m_dontShowMainWindow = true;
         } else if(arguments().at(i) == "-R" || arguments().at(i) == "--read-only") {
-            readOnly = true;
+            //readOnly = true;
         } else if(arguments().at(i) == "-o" || arguments().at(i) == "--option" ||
                   arguments().at(i) == "-O" || arguments().at(i) == "--save-option") {
             const QString optionWarning = tr("The -o/--option and -O/--save-option options require an argument in the form group/setting=value");
@@ -153,38 +152,15 @@ Application::Application(int& argc, char** argv) :
     }
 
     // Show main window
-    m_homepage = new BibleHome();
+    m_homepage = new AppHome();
     m_homepage->showMaximized();
     connect(this, &Application::lastWindowClosed, this, &Application::quit);
 
-    // Open database if one was specified
-    if(fileToOpen.size())
-    {
-        if(m_mainWindow->fileOpen(fileToOpen, false, readOnly))
-        {
-            // If database could be opened run the SQL scripts
-            for(const QString& f : sqlToExecute)
-            {
-                QFile file(f);
-                if(file.open(QIODevice::ReadOnly))
-                {
-                    m_mainWindow->getDb().executeMultiSQL(file.readAll(), false, true);
-                    file.close();
-                }
-            }
-            if(!sqlToExecute.isEmpty())
-                m_mainWindow->refresh();
-
-            // Jump to table if the -t/--table parameter was set
-            if(!tableToBrowse.isEmpty())
-                m_mainWindow->switchToBrowseDataTab(sqlb::ObjectIdentifier("main", tableToBrowse.toStdString()));
-        }
-    }
 }
 
 Application::~Application()
 {
-    delete m_mainWindow;
+    delete m_homepage;
 }
 
 bool Application::event(QEvent* event)
@@ -192,7 +168,7 @@ bool Application::event(QEvent* event)
     switch(event->type())
     {
     case QEvent::FileOpen:
-        m_mainWindow->fileOpen(static_cast<QFileOpenEvent*>(event)->file());
+        //m_mainWindow->fileOpen(static_cast<QFileOpenEvent*>(event)->file());
         return true;
     default:
         return QApplication::event(event);

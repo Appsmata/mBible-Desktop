@@ -91,6 +91,13 @@
                 <Component><File Source="$(var.QtPath)\translations\qtmultimedia_it.qm" /></Component>
                 <Component><File Source="$(var.QtPath)\translations\qtscript_it.qm" /></Component>
                 <Component><File Source="$(var.QtPath)\translations\qtxmlpatterns_it.qm" /></Component>
+                
+                <!-- Japanese -->
+                <Component><File Source="$(var.QtPath)\translations\qt_ja.qm" /></Component>
+                <Component><File Source="$(var.QtPath)\translations\qtbase_ja.qm" /></Component>
+                <Component><File Source="$(var.QtPath)\translations\qtmultimedia_ja.qm" /></Component>
+                <Component><File Source="$(var.QtPath)\translations\qtscript_ja.qm" /></Component>
+                <Component><File Source="$(var.QtPath)\translations\qtxmlpatterns_ja.qm" /></Component>
 
                 <!-- Korean -->
                 <Component><File Source="$(var.QtPath)\translations\qt_ko.qm" /></Component>
@@ -203,6 +210,13 @@
             <ComponentRef Id="qtmultimedia_it.qm" />
             <ComponentRef Id="qtscript_it.qm" />
             <ComponentRef Id="qtxmlpatterns_it.qm" />
+
+            <!-- Japanese -->
+            <ComponentRef Id="qt_ja.qm" />
+            <ComponentRef Id="qtbase_ja.qm" />
+            <ComponentRef Id="qtmultimedia_ja.qm" />
+            <ComponentRef Id="qtscript_ja.qm" />
+            <ComponentRef Id="qtxmlpatterns_ja.qm" />
 
             <!-- Korean -->
             <ComponentRef Id="qt_ko.qm" />

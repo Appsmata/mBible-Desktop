@@ -19,4 +19,4 @@ public:
 	~AsDelegate();
 };
 
-#endif ASDELEGATE_H
+#endif

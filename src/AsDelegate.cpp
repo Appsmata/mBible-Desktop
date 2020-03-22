@@ -7,9 +7,7 @@
 #include <QEvent>
 #include <QDebug>
 
-AsDelegate::AsDelegate(QObject* parent) :
-	QStyledItemDelegate(parent)
-{ }
+AsDelegate::AsDelegate(QObject* parent) : QStyledItemDelegate(parent) { }
 
 AsDelegate::~AsDelegate()
 {
@@ -48,8 +46,8 @@ void AsDelegate::paint(QPainter* painter, const QStyleOptionViewItem& option, co
 			painter->drawPath(path);
 		}
 		else if (option.state.testFlag(QStyle::State_Selected)) {
-			painter->setPen(QPen(QColor("#FF7C00")));
-			painter->setBrush(QColor("#FF7C00"));
+			painter->setPen(QPen(QColor("#FF8C00")));
+			painter->setBrush(QColor("#FF8C00"));
 			painter->drawPath(path);
 		}
 		else {
@@ -75,11 +73,11 @@ void AsDelegate::paint(QPainter* painter, const QStyleOptionViewItem& option, co
 		}
 
 		painter->setPen(QPen(QColor(Qt::black)));
-		painter->setFont(QFont("Trebuchet MS", 12, QFont::Bold));
+		painter->setFont(QFont("Trebuchet MS", 10, QFont::Bold));
 		painter->drawText(itemText1, item.title);
 
 		painter->setPen(QPen(Qt::black));
-		painter->setFont(QFont("Trebuchet MS", 12, 0));
+		painter->setFont(QFont("Trebuchet MS", 10, 0));
 		painter->drawText(itemText2, item.content);
 
 		painter->restore();

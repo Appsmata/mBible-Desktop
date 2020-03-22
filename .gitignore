@@ -1,5 +1,4 @@
 Makefile
-vsongbook.pro.user
 .qmake.stash
 CMakeCache.txt
 CMakeLists.txt.user
@@ -12,6 +11,8 @@ CMakeFiles
 *.moc
 *.obj
 *.pdp
+*.dll
+*.lib
 *.exe
 *.log
 *.tlog
@@ -37,12 +38,12 @@ testdata/
 x64/
 win32/
 Debug/
-Release/
 CMakeFiles/
 vsongbook.dir/
 vsongbook_autogen/
 
-libs/
+Release/*.dll
+publish/outputs/*.exe
 src/.ui/
 src/vsongbook
 src/Makefile*
@@ -70,3 +71,4 @@ libs/*/*/*.a
 
 # Ignore .DS_Store files on OSX
 .DS_Store
+mbible.pro.user.18d33b5
