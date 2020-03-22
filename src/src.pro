@@ -26,14 +26,14 @@ HEADERS += \
     AsItem.h \
     AsUtils.h \
     sqlitedb.h \
-    AppAbout.h \
-    AppEditor.h \
-    AppHome.h \
-    AppOnline.h \
-    AppPreferences.h \
-    AppPresent.h \
-    AppSongbooks.h \
-    AppTutorial.h \
+    ui/AppAbout.h \
+    ui/AppEditor.h \
+    ui/AppHome.h \
+    ui/AppOnline.h \
+    ui/AppPreferences.h \
+    ui/AppPresent.h \
+    ui/AppSongbooks.h \
+    ui/AppTutorial.h \
     Settings.h \
     sqltextedit.h \
     sql/sqlitetypes.h \
@@ -73,14 +73,14 @@ SOURCES += \
     AsDelegate.cpp \
     AsUtils.cpp \
     sqlitedb.cpp \
-    AppAbout.cpp \
-    AppEditor.cpp \
-    AppHome.cpp \
-    AppOnline.cpp \
-    AppPreferences.cpp \
-    AppPresent.cpp \
-    AppSongbooks.cpp \
-    AppTutorial.cpp \
+    ui/AppAbout.cpp \
+    ui/AppEditor.cpp \
+    ui/AppHome.cpp \
+    ui/AppOnline.cpp \
+    ui/AppPreferences.cpp \
+    ui/AppPresent.cpp \
+    ui/AppSongbooks.cpp \
+    ui/AppTutorial.cpp \
     Settings.cpp \
     sqltextedit.cpp \
     sql/sqlitetypes.cpp \
@@ -119,14 +119,14 @@ RESOURCES += icons/icons.qrc \
              qdarkstyle/style.qrc
 
 FORMS += \
-    AppAbout.ui \
-    AppSongbooks.ui \
-    AppEditor.ui \
-    AppHome.ui \
-    AppOnline.ui \
-    AppPreferences.ui \
-    AppPresent.ui \
-    AppTutorial.ui
+    ui/AppAbout.ui \
+    ui/AppSongbooks.ui \
+    ui/AppEditor.ui \
+    ui/AppHome.ui \
+    ui/AppOnline.ui \
+    ui/AppPreferences.ui \
+    ui/AppPresent.ui \
+    ui/AppTutorial.ui
 
 TRANSLATIONS += \
     translations/sqlb_ar_SA.ts \

@@ -1,3 +1,8 @@
+#include "Application.h"
+#include "ui/AppHome.h"
+#include "Settings.h"
+#include "version.h"
+
 #include <QFile>
 #include <QFileOpenEvent>
 #include <QTranslator>
@@ -7,15 +12,10 @@
 #include <QDebug>
 #include <QAction>
 
-#include "Application.h"
-#include "AppHome.h"
-#include "Settings.h"
-#include "version.h"
-
 Application::Application(int& argc, char** argv) :
     QApplication(argc, argv)
 {
-    // Set organisation and application names
+	// Set organisation and application names
     setOrganizationName("Appsmata Solutions");
     setApplicationName("mBible");
 	setApplicationVersion(APP_VERSION);

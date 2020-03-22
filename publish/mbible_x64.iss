@@ -26,7 +26,7 @@ UsedUserAreasWarning=no
 ; Remove the following line to run in administrative install mode (install for all users.)
 PrivilegesRequired=lowest
 OutputDir=D:\Cpp\mbible4pc\publish
-OutputBaseFilename=vSongBook_{#MyAppVersion}_x64
+OutputBaseFilename=mBible_{#MyAppVersion}_x64
 SetupIconFile=D:\Cpp\mbible4pc\publish\mbible.ico
 Compression=lzma
 SolidCompression=yes

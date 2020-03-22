@@ -8,5 +8,7 @@
         <file>mBible.png</file>
         <file>Up_Black.png</file>
         <file>Up_White.png</file>
+        <file>cyclic.gif</file>
+        <file>loading.gif</file>
     </qresource>
 </RCC>

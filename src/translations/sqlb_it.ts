@@ -2474,7 +2474,7 @@ x~y	Intervallo: valori tra x e y
 You can drag SQL statements from an object row and drop them into other applications or into another instance of &apos;mBible&apos;.
 </source>
         <translation>Questa è la struttura del database aperto.
-Puoi trascinare SQL da una riga oggetto e rilasciarli dentro altri applicativi o in altre istanze di àvSongBook&apos;.
+Puoi trascinare SQL da una riga oggetto e rilasciarli dentro altri applicativi o in altre istanze di àmBible&apos;.
 </translation>
     </message>
     <message>

@@ -36,7 +36,7 @@ git pull
 git clean -dffx
 
 ::git clone -b %BRANCH% https://github.com/sqlitebrowser/sqlitebrowser.git "%DB4S_DIR%Win32"
-CD D:\\Cpp\\vSongBook4PC
+CD D:\\Cpp\\mBible4PC
 git clean -dffx
 git checkout -f HEAD
 git checkout master

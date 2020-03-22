@@ -122,16 +122,17 @@ set(SQLB_HDR
 	src/IconCache.h
 	src/sqlite.h
 	src/version.h
+	src/task.hpp
 )
 
 set(SQLB_MOC_HDR
-	src/AppAbout.h
-	src/AppHome.h
 	src/Application.h
-	src/AppOnline.h
-	src/AppPreferences.h
-	src/AppPresent.h
-	src/AppTutorial.h
+	src/ui/AppAbout.h
+	src/ui/AppHome.h
+	src/ui/AppOnline.h
+	src/ui/AppPreferences.h
+	src/ui/AppPresent.h
+	src/ui/AppTutorial.h
 	src/AsBase.h
 	src/AsDelegate.h
 	src/AsItem.h
@@ -166,13 +167,13 @@ set(SQLB_SRC
 	src/sql/parser/sqlite3_parser.cpp
 	src/sql/Query.cpp
 	src/sql/sqlitetypes.cpp
-	src/AppAbout.cpp
-	src/AppHome.cpp
 	src/Application.cpp
-	src/AppOnline.cpp
-	src/AppPreferences.cpp
-	src/AppPresent.cpp
-	src/AppTutorial.cpp
+	src/ui/AppAbout.cpp
+	src/ui/AppHome.cpp
+	src/ui/AppOnline.cpp
+	src/ui/AppPreferences.cpp
+	src/ui/AppPresent.cpp
+	src/ui/AppTutorial.cpp
 	src/AsBase.cpp
 	src/AsDelegate.cpp
 	src/AsUtils.cpp
@@ -203,12 +204,12 @@ set(SQLB_SRC
 )
 
 set(SQLB_FORMS
-	src/AppAbout.ui
-	src/AppHome.ui
-	src/AppOnline.ui
-	src/AppPreferences.ui
-	src/AppPresent.ui
-	src/AppTutorial.ui
+	src/ui/AppAbout.ui
+	src/ui/AppHome.ui
+	src/ui/AppOnline.ui
+	src/ui/AppPreferences.ui
+	src/ui/AppPresent.ui
+	src/ui/AppTutorial.ui
 )
 
 set(SQLB_RESOURCES

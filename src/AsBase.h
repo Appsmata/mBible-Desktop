@@ -12,6 +12,8 @@
 class AsBase
 {
 public:
+	static void WriteLogs(QString Source, QString Message, QString InnerException, QString StackTrace);
+
     static bool isTrue(int value);
     static QString ReplaceList(QString text);
     static QString ReplaceView(QString text);
@@ -23,7 +25,7 @@ public:
     static void SetOption(QString Title, QString Content);
     static void UpdateSongCount(QString Bookid, QString Count);
 
-    static void execSQL(QString SqlQuery);
+    static void execSql(QString SqlQuery);
     static void InitialDbOps();
 
     static void NewBook(QString Title, QString Category, QString Tags, QString Content, QString Position, QString Songs);
