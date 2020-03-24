@@ -3,8 +3,7 @@
 
 ## What it is
 
-_mBible_ (Master Bible) is a high quality, visual, open source
-tool to give users access to the Holy Bible in English and Kiswahili.
+_mBible_ (Master Bible) is a high quality, visual, open source tool to give users access to the Holy Bible in English and Kiswahili.
 
 Controls and wizards are available for users to:
 
@@ -13,15 +12,12 @@ Controls and wizards are available for users to:
 * Switch between languages
 * Adjust font types and sizes among other display preferences
 
-## LInks
+## Links
 
-### Facebook: https://twitter.com/AppSmata
-
-### Twitter: https://twitter.com/AppSmata
-
-### Instagram: https://twitter.com/AppSmata
-
-### Website https://Appsmata.com/Mbible
+* Facebook: https://twitter.com/AppSmata
+* Twitter: https://twitter.com/AppSmata
+* Instagram: https://twitter.com/AppSmata
+* Website https://Appsmata.com/vSongBook
 
 ## Releases
 
